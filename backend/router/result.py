@@ -11,7 +11,7 @@ from playhouse.shortcuts import model_to_dict
 router = APIRouter()
 
 
-@router.get('/', response_model=List[result_schemas.Result])
+@router.get('/')
 def get_result():
     return ResultModel.get_list()
 
@@ -19,8 +19,9 @@ def get_result():
 @router.post('/')
 @transaction
 def create_result(result: result_schemas.ResultCreate):
-    image = Image.create(b64decode(result.image))
-
-    result.image = image.id
-    result = result.dict()
-    return model_to_dict(ResultModel.create(**result))
+    data = {
+        'code': result.code,
+        'subject': result.subject,
+        'result': result.result,
+    }
+    return ResultModel.create(result.image, **data)

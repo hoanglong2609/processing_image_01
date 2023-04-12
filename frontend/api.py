@@ -10,6 +10,9 @@ class Api:
     def post(self, path, data=None, json=None, **kwargs):
         return requests.post(url=self.__get_url(path), data=data, json=json, **kwargs)
 
+    def put(self, path, data=None, json=None, **kwargs):
+        return requests.put(url=self.__get_url(path), data=data, json=json, **kwargs)
+
     def __get_url(self, path):
         return f'{self.base_url}/{path}'
 

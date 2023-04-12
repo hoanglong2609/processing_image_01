@@ -3,10 +3,9 @@ from fastapi import APIRouter
 from model.score import Score as ScoreModel
 from schemas import score as score_schemas
 
-
 router = APIRouter()
 
 
-@router.get('/', response_model=List[score_schemas.Score])
-def get_scores():
-    return ScoreModel.get_list()
+@router.get('/')
+def get_scores(student: int = None, subject: int = None):
+    return ScoreModel.get_list(student=student, subject=subject)

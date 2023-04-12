@@ -17,3 +17,11 @@ class UserCreate(BaseSchemas):
     password: str
     subject_ids: List[int]
     role: int
+
+
+class UserUpdate(BaseSchemas):
+    code: str
+    name: str
+    subject_ids: List[int]
+    role: int
+

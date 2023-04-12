@@ -4,7 +4,77 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2464f9f-9056-4072-b559-e0ff2f8b497e" name="Changes" comment="" />
+    <list default="true" id="e2464f9f-9056-4072-b559-e0ff2f8b497e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/Image_test/tes1/40e82d2170c1ac9ff5d0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/Image_test/tes1/587f36b66b56b708ee47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/Image_test/tes1/fb6a89a3d443081d5152.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/Image_test/test2/110f17e14a01965fcf10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/Image_test/test2/71dc72322fd2f38caac3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/Image_test/test2/d307dce981095d570418.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_06_49_20.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_07_00_43.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_07_19_23.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_07_32_17.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_07_50_25.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_08_03_48.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_08_09_27.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_08_10_17.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_08_22_14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_08_27_12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_08_27_54.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_08_47_37.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_08_53_33.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_08_54_06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_05_34.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_10_13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_11_32.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_21_21.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_26_00.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_27_14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_30_05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_31_14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_32_08.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_37_49.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_38_29.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_47_48.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_51_53.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_52_36.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_09_55_27.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_10_32_47.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_10_37_38.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_10_38_27.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_03_30_10_58_52.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_04_10_12_38_21.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_04_10_16_38_24.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_04_10_16_38_58.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_04_10_16_46_37.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_04_10_16_53_02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_04_11_13_32_45.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_04_11_13_59_31.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_04_11_13_59_58.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image/2023_04_11_14_25_19.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/utils/mail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/imageToSave.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/imageToSave.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/img_draresult.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_draresult.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/img_thershcode.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershcode.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/img_thershresult.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershresult.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/img_thershstudent.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershstudent.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/model/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/model/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/score.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/model/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/router/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/router/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/score.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/router/subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/subject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/router/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/schemas/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/schemas/result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/schemas/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/schemas/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sql/create_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/sql/create_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/utils/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/utils/utilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,21 +92,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/msi/PycharmProjects&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/msi/Desktop/processing_image_L2/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="processing_image" />
@@ -83,11 +154,26 @@
       <workItem from="1680154613039" duration="665000" />
       <workItem from="1680157290857" duration="833000" />
       <workItem from="1680158169496" duration="238000" />
+      <workItem from="1680174118753" duration="561000" />
+      <workItem from="1680797737660" duration="32000" />
+      <workItem from="1681275795644" duration="353000" />
     </task>
+    <task id="LOCAL-00001" summary="temp commit">
+      <created>1680174157595</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680174157595</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="temp commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="temp commit" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/processing_image$main.coverage" NAME="main Coverage Results" MODIFIED="1680145297160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />

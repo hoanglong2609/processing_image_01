@@ -1,5 +1,5 @@
 from model.base import BaseModel
-from peewee import FloatField, ForeignKeyField, IntegerField
+from peewee import FloatField, ForeignKeyField, IntegerField, fn
 from playhouse.postgres_ext import ArrayField
 from playhouse.shortcuts import model_to_dict
 from model.image import Image
@@ -47,4 +47,30 @@ class Score(BaseModel):
             'image': image
         }
         return super().create(**data)
+
+    @classmethod
+    def handle_select(cls, **kwargs):
+        return (
+            cls.select(
+                cls.id,
+                fn.json_build_object(
+                    'id', User.id, 'name', User.name
+                ).alias('student'),
+                cls.code,
+                cls.score,
+                fn.json_build_object(
+                    'id', Subject.id, 'name', Subject.name
+                ).alias('subject'),
+                cls.filled_cell,
+                fn.json_build_object(
+                    'id', Image.id, 'url', Image.url
+                ).alias('image')
+            ).left_outer_join(
+                User, on=User.id == cls.student
+            ).left_outer_join(
+                Subject, on=Subject.id == cls.subject
+            ).left_outer_join(
+                Image, on=Image.id == cls.image
+            )
+        )
 

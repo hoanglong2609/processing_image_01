@@ -1,7 +1,8 @@
 from tkinter import *
 from tkinter import messagebox
+from tkinter import ttk
 from api import api
-from common import get_students, build_table, process_result
+from common import get_students, build_table, process_result, get_scores
 from tkinter import filedialog
 from PIL import Image, ImageTk
 import base64
@@ -15,6 +16,7 @@ image_size = {'width': 700, 'height': 390}
 label_info = {'bg': '#333333', 'fg': "#FFFFFF", 'font': ("Arial", 16)}
 small_label_info = {'bg': '#333333', 'fg': "#FFFFFF", 'font': ("Arial", 12)}
 testing_image = None
+ROLE = 0
 
 
 class MyImage:
@@ -22,8 +24,177 @@ class MyImage:
     path_image = None
 
 
-def on_process_result(base64_image, is_grading):
-    process_result(base64_image, is_grading)
+def on_save_master(dialog, entries, screen, id=None):
+    data = {}
+    subjects = api.get('subject').json()
+
+    for entry_key, value in entries.items():
+        if entry_key == 'subject':
+            cur_selection = list(value['object'].curselection())
+            data['subject_ids'] = []
+            for index, subject in enumerate(subjects):
+                if index in cur_selection:
+                    data['subject_ids'].append(subject['id'])
+        else:
+            data[entry_key] = value['object'].get()
+    if screen == 'teacher' or screen == 'student':
+        data['role'] = 1 if screen == 'teacher' else 0
+        data['password'] = data['code']
+        try:
+            if id:
+                data.pop('password', None)
+                api.put(f'user/{id}', json=data)
+                print(data)
+            else:
+                api.post(f'user/create', json=data)
+        except:
+            messagebox.showerror('info', 'create failed')
+    else:
+        try:
+            if id:
+                api.put(f'subject/{id}', json=data)
+            else:
+                api.post(f'subject/create', json=data)
+        except:
+            messagebox.showerror('info', 'create failed')
+
+    dialog.destroy()
+    master_page_detail(screen)
+
+
+def dialog(screen, id=None):
+    dialog = Toplevel()
+    dialog.title('Dialog')
+    dialog.geometry('340x250' if screen == 'subject' else '500x250')
+    Label(dialog, **label_info).place(x=0, y=0, width=340 if screen == 'subject' else 500, height=350)
+
+    if id:
+        if screen == 'subject':
+            default_data = api.get(screen, {'id': id}).json()[0]
+        else:
+            default_data = api.get('user', {'id': id, 'role': 1 if screen == 'teacher' else 0}).json()[0]
+
+    subjects = api.get('subject').json()
+    if screen == 'subject':
+        entries = {
+            'name': {
+                'object': Entry(dialog),
+                'label': Label(dialog, text='name', **label_info),
+                'place': {'width': 100, 'height': 25, 'x': 0, 'y': 50}
+            }
+        }
+    else:
+        entries = {
+            'subject': {
+                'object': Listbox(dialog, selectmode="multiple"),
+                'label': Label(dialog, text='subject', **label_info),
+                'place': {'width': 100, 'height': 25, 'x': 0, 'y': 0}
+            },
+            'code': {
+                'object': Entry(dialog),
+                'label': Label(dialog, text='code', **label_info),
+                'place': {'width': 100, 'height': 25, 'x': 250, 'y': 0}
+            },
+            'name': {
+                'object': Entry(dialog),
+                'label': Label(dialog, text='name', **label_info),
+                'place': {'width': 100, 'height': 25, 'x': 250, 'y': 100}
+            }
+        }
+
+    for entry_key, value in entries.items():
+        value['label'].place(**value['place'])
+        if screen == 'subject':
+            value['object'].place(
+                width=200,
+                height=25,
+                x=value['place']['x'] + 100,
+                y=value['place']['y']
+            )
+            if id:
+                value['object'].insert(0, default_data['name'])
+        else:
+            value['object'].place(
+                width=200,
+                height=250 if entry_key == 'subject' else 25,
+                x=0 if entry_key == 'subject' else value['place']['x'],
+                y=50 if entry_key == 'subject' else value['place']['y'] + 50
+            )
+            if entry_key == 'subject':
+                for index, subject in enumerate(subjects):
+                    value['object'].insert(END, subject['name'])
+                    if subject in default_data['subjects']:
+                        value['object'].select_set(index)
+            if id and entry_key != 'subject':
+                value['object'].insert(0, default_data[entry_key])
+
+    Button(
+        dialog, **label_info, text='Save', command=lambda: on_save_master(dialog, entries, screen, id)
+    ).place(x=250, y=200, height=25, width=100)
+
+
+def master_page_detail(type):
+    def handle_update(event):
+        id = table.item(table.focus())['values'][0]
+        dialog(type, id)
+
+    Label(window, **small_label_info).place(width=800, height=440, x=0, y=0)
+    if type == 'subject':
+        data = api.get(type).json()
+        header_table = (
+            {'name': 'id', 'text': 'Id', 'width': 80},
+            {'name': type, 'text': type, 'width': 170}
+        )
+    else:
+        data = api.get('user', {'role': 1 if type == 'teacher' else 0}).json()
+        header_table = (
+            {'name': 'id', 'text': 'Id', 'width': 40},
+            {'name': 'code', 'text': 'code', 'width': 40},
+            {'name': 'name', 'text': 'name', 'width': 130}
+        )
+    table = build_table(window, header_table, data, {'width': 760, 'height': 360, 'x': 20, 'y': 20})
+
+    table.bind('<Double-1>', handle_update)
+
+    Button(window, text='Add new', command=lambda: dialog(type)).place(
+        width=70, height=25, x=700, y=400
+    )
+    Button(window, text='Back', command=master_page).place(
+        width=70, height=25, x=600, y=400
+    )
+
+
+def master_page():
+    Label(window, **small_label_info).place(width=800, height=440, x=0, y=0)
+    Label(window, text='Master page', bg='#333333', fg="#FF3399", font=("Arial", 30)).place(
+        x=0, y=0, width=800, height=50
+    )
+    buttons = {
+        'subject': {
+            'object': Button(window, text='subject', **label_info, command=lambda: master_page_detail('subject')),
+            'place': {'width': 150, 'height': 50, 'x': 325, 'y': 60}
+        },
+        'student': {
+            'object': Button(window, text='student', **label_info, command=lambda: master_page_detail('student')),
+            'place': {'width': 150, 'height': 50, 'x': 325, 'y': 160}
+        },
+        'teacher': {
+            'object': Button(window, text='teacher', **label_info, command=lambda: master_page_detail('teacher')),
+            'place': {'width': 150, 'height': 50, 'x': 325, 'y': 260}
+        }
+    }
+
+    for key, value in buttons.items():
+        value['object'].place(**value['place'])
+
+    Button(window, text='Back', **label_info, command=home_screen).place(**{'width': 150, 'height': 50, 'x': 325, 'y': 360})
+
+
+def on_process_result(base64_image, is_grading, subject_combobox):
+    subjects = api.get('subject').json()
+    subject_name = subject_combobox.get()
+    subject_id = list(filter(lambda x: x['name'] == subject_name, subjects))[0]['id']
+    process_result(base64_image, is_grading, subject_id)
 
 
 def on_open_file_dialog():
@@ -45,12 +216,21 @@ def on_open_file_dialog():
 def processing_page(is_grading):
     Label(window, **small_label_info).place(width=800, height=440, x=0, y=0)
     Label(window, text='Choose File', **small_label_info).place(width=100, height=30, x=10, y=10)
+
+    subject_combobox = ttk.Combobox(window)
+    subjects = api.get('subject').json()
+    subject_combobox['value'] = list(map(lambda x: x['name'], subjects))
+    subject_combobox.place(width=150, height=25, x=210, y=12)
+
     Button(
         window, text='Choose', bg="#FF3399", fg="#FFFFFF", font=("Arial", 12), command=on_open_file_dialog
     ).place(width=70, height=25, x=110, y=12)
     Button(
-        window, text='Create result', bg="#FF3399", fg="#FFFFFF", font=("Arial", 12),
-        command=lambda: on_process_result(MyImage.base64_image, is_grading)
+        window, text='Back', bg="#FF3399", fg="#FFFFFF", font=("Arial", 12), command=home_screen
+    ).place(width=70, height=25, x=570, y=12)
+    Button(
+        window, text='Create result' if not is_grading else 'Grading', bg="#FF3399", fg="#FFFFFF", font=("Arial", 12),
+        command=lambda: on_process_result(MyImage.base64_image, is_grading, subject_combobox)
     ).place(
         width=100, height=25, x=670, y=10
     )
@@ -61,10 +241,28 @@ def subject_page():
     def filter_students(event):
         item = subject_table.item(subject_table.focus())
         row = item['values']
-        students = get_students({'subject': row[0]})
+        students = get_students({'subject': row[0], 'role': 0})
         students_table = build_table(
             window, header_student_table, students, {'width': 450, 'height': 400, 'x': 300, 'y': 20}
         )
+        students_table.bind('<Double-1>', filter_scores)
+
+    def filter_scores(event):
+        dialog = Toplevel()
+        dialog.title('score')
+        dialog.geometry('340x350')
+        item = subject_table.item(subject_table.focus())
+        row = item['values']
+        scores = get_scores({'subject': row[0]})
+        header_score_table = (
+            {'name': 'id', 'text': 'Id', 'width': 100},
+            {'name': 'code', 'text': 'code', 'width': 100},
+            {'name': 'score', 'text': 'score', 'width': 100}
+        )
+        scores_table = build_table(
+            dialog, header_score_table, scores, {'width': 300, 'height': 300, 'x': 20, 'y': 20})
+
+        # scores_table = build_table(dialog, )
 
     Label(window, **label_info).place(width=800, height=440, x=0, y=0)
     Button(window, text='Back', command=home_screen).place(width=70, height=30, x=700, y=405)
@@ -81,12 +279,13 @@ def subject_page():
     )
 
     subjects = api.get('subject').json()
-    students = get_students()
+    students = get_students({'role': 0})
 
     subject_table = build_table(window, header_subject_table, subjects, {'width': 250, 'height': 380, 'x': 20, 'y': 20})
     students_table = build_table(window, header_student_table, students, {'width': 450, 'height': 380, 'x': 300, 'y': 20})
 
     subject_table.bind('<Double-1>', filter_students)
+    students_table.bind('<Double-1>', filter_scores)
 
     # auto focus
     subject_table.focus(subject_table.get_children()[0])
@@ -94,39 +293,72 @@ def subject_page():
 
 
 def home_screen():
-    Label(window, width=800, height=440, **label_info).pack()
+    # Label(window, width=800, height=440, **label_info).pack()
     Label(window, **label_info).place(width=800, height=440, x=0, y=0)
     Label(window, text='Home page', bg='#333333', fg="#FF3399", font=("Arial", 30)).place(
         x=0, y=0, width=800, height=50
     )
-    buttons = {
-        'create result': {
-            'object': Button(window, text='create result', **label_info, command=lambda: processing_page(False)),
-            'place': {'width': 150, 'height': 50, 'x': 325, 'y': 150}
-        },
-        'grading': {
-            'object': Button(window, text='grading', **label_info, command=lambda: processing_page(True)),
-            'place': {'width': 150, 'height': 50, 'x': 325, 'y': 250}
-        },
-        'subject': {
-            'object': Button(window, text='subject', **label_info, command=subject_page),
-            'place': {'width': 150, 'height': 50, 'x': 325, 'y': 350}
+    if ROLE == 1:
+        buttons = {
+            'master': {
+                'object': Button(window, text='master', **label_info, command=master_page),
+                'place': {'width': 150, 'height': 50, 'x': 325, 'y': 60}
+            },
+            'create result': {
+                'object': Button(window, text='create result', **label_info, command=lambda: processing_page(False)),
+                'place': {'width': 150, 'height': 50, 'x': 325, 'y': 160}
+            },
+            'grading': {
+                'object': Button(window, text='grading', **label_info, command=lambda: processing_page(True)),
+                'place': {'width': 150, 'height': 50, 'x': 325, 'y': 260}
+            },
+            'subject': {
+                'object': Button(window, text='subject', **label_info, command=subject_page),
+                'place': {'width': 150, 'height': 50, 'x': 325, 'y': 360}
+            }
         }
-    }
-
+    else:
+        buttons = {
+            'subject': {
+                'object': Button(window, text='subject', **label_info, command=subject_page),
+                'place': {'width': 150, 'height': 50, 'x': 325, 'y': 150}
+            }
+        }
     for key, value in buttons.items():
         value['object'].place(**value['place'])
 
 
 def login():
+    global ROLE
     data = api.post(
         'user/login', json={'code': username_entry.get(), 'password': password_entry.get()}
     )
 
     if data.json()['code'] == 200:
+        ROLE = data.json()['data']['role']
         home_screen()
     else:
         messagebox.showerror(title="Error", message="Invalid login.")
+
+
+def get_password(code_entry, gmail_entry):
+    api.get('user/forgot', {'code': code_entry.get(), 'gmail': gmail_entry.get()})
+    messagebox.showinfo('info', 'check your mail')
+
+
+def forgot():
+    dialog = Toplevel()
+    dialog.title('Dialog')
+    dialog.geometry('320x250')
+    Label(dialog, text='code').place(x=0, y=0, width=100, height=50)
+    Label(dialog, text='gmail').place(x=0, y=50, width=100, height=50)
+    code_entry = Entry(dialog)
+    code_entry.place(x=100, y=12, width=200, height=25)
+    gmail_entry = Entry(dialog)
+    gmail_entry.place(x=100, y=62, width=200, height=25)
+    Button(
+        dialog, text='get password', command=lambda: get_password(code_entry, gmail_entry)
+    ).place(x=50, y=162, width=200, height=25)
 
 
 # Creating login page
@@ -136,12 +368,14 @@ username_label = Label(
     window, text="Username", bg='#333333', fg="#FFFFFF", font=("Arial", 16))
 username_entry = Entry(window, font=("Arial", 16))
 password_entry = Entry(window, show="*", font=("Arial", 16))
-username_entry.insert(0, '20160320')
-password_entry.insert(0, '20160320')
+username_entry.insert(0, 'anhnv')
+password_entry.insert(0, '1')
 password_label = Label(
     window, text="Password", bg='#333333', fg="#FFFFFF", font=("Arial", 16))
 login_button = Button(
     window, text="Login", bg="#FF3399", fg="#FFFFFF", font=("Arial", 16), command=login)
+forgot_button = Button(
+    window, text="Forgot", bg="#FF3399", fg="#FFFFFF", font=("Arial", 16), command=forgot)
 
 # Placing widgets on the screen
 login_label.place(width=100, height=50, x=350, y=50)
@@ -150,119 +384,6 @@ username_entry.place(width=200, height=30, x=350, y=160)
 password_label.place(width=100, height=50, x=250, y=200)
 password_entry.place(width=200, height=30, x=350, y=210)
 login_button.place(width=100, height=50, x=350, y=300)
+forgot_button.place(width=100, height=50, x=350, y=360)
 
 window.mainloop()
-
-# SETTING = {'width': 800, 'height': 440, 'bg': '#333333'}
-#
-#
-# class SampleApp(Tk):
-#
-#     def __init__(self, *args, **kwargs):
-#         Tk.__init__(self, *args, **kwargs)
-#
-#         self.title_font = Font(family='Helvetica', size=18, weight="bold", slant="italic")
-#
-#         # the container is where we'll stack a bunch of frames
-#         # on top of each other, then the one we want visible
-#         # will be raised above the others
-#         container = Frame(self, **SETTING)
-#         # container.pack(side="top", fill="both", expand=True)
-#         container.pack()
-#         container.grid_rowconfigure(0, weight=2)
-#         container.grid_columnconfigure(0, weight=2)
-#
-#         self.frames = {}
-#         for F in (LoginPage, PageHome, SubjectPage):
-#             page_name = F.__name__
-#             frame = F(parent=container, controller=self)
-#             self.frames[page_name] = frame
-#
-#             # put all of the pages in the same location;
-#             # the one on the top of the stacking order
-#             # will be the one that is visible.
-#             frame.grid(row=0, column=0, sticky="nsew")
-#
-#         self.show_frame("LoginPage")
-#
-#     def show_frame(self, page_name):
-#         '''Show a frame for the given page name'''
-#         frame = self.frames[page_name]
-#         frame.tkraise()
-#
-#
-# class LoginPage(Frame):
-#
-#     def __init__(self, parent, controller):
-#         Frame.__init__(self, parent, **SETTING)
-#         self.controller = controller
-#
-#         # Creating widgets
-#         login_label = Label(
-#             self, text="Login", bg='#333333', fg="#FF3399", font=("Arial", 30))
-#         username_label = Label(
-#             self, text="Username", bg='#333333', fg="#FFFFFF", font=("Arial", 16))
-#         username_entry = Entry(self, font=("Arial", 16))
-#         password_entry = Entry(self, show="*", font=("Arial", 16))
-#         username_entry.insert(0, '20160320')
-#         password_entry.insert(0, '20160320')
-#         password_label = Label(
-#             self, text="Password", bg='#333333', fg="#FFFFFF", font=("Arial", 16))
-#         login_button = Button(
-#             self, text="Login", bg="#FF3399", fg="#FFFFFF", font=("Arial", 16),
-#             command=lambda: self.login(username_entry.get(), password_entry.get())
-#         )
-#
-#         # Placing widgets on the screen
-#         login_label.grid(row=0, column=0, columnspan=2, sticky="news", pady=40)
-#         username_label.grid(row=1, column=0)
-#         username_entry.grid(row=1, column=1, pady=20)
-#         password_label.grid(row=2, column=0)
-#         password_entry.grid(row=2, column=1, pady=20)
-#         login_button.grid(row=3, column=0, columnspan=2, pady=30)
-#
-#     def login(self, code, password):
-#         data = api.post(
-#             'user/login', json={'code': code, 'password': password}
-#         )
-#         if data.json()['code'] == 200:
-#             self.controller.show_frame('PageHome')
-#         else:
-#             messagebox.showerror(title="Error", message="Invalid login.")
-#
-#
-# class PageHome(Frame):
-#     color = {'bg': '#333333', 'fg': "#FFFFFF"}
-#     color_btn = {'bg': '#FF3399', 'fg': "#FFFFFF"}
-#
-#     def __init__(self, parent, controller):
-#         Frame.__init__(self, parent, **SETTING)
-#         self.controller = controller
-#         label = Label(self, text="Home page", font=controller.title_font, **self.color)
-#         grading = Button(self, text="Grading", **self.color_btn, command=lambda: controller.show_frame("StartPage"))
-#         subjects = Button(self, text="Subjects", **self.color_btn, command=lambda: controller.show_frame("SubjectPage"))
-#
-#         label.grid(row=0, column=1, pady=20, padx=100)
-#         grading.grid(row=1, column=1, pady=20, padx=100)
-#         subjects.grid(row=2, column=1, pady=20, padx=100)
-#
-#
-# class SubjectPage(Frame):
-#
-#     def __init__(self, parent, controller):
-#         Frame.__init__(self, parent, **SETTING)
-#         self.controller = controller
-#         label = Label(self, text="Subjects", font=controller.title_font)
-#         label.pack(side="top", fill="x", pady=10)
-#         Label(self, text='test').place(x=10, y=10, width=100, height=30)
-#         # button = Button(self, text="Go to the start page",
-#         #                    command=lambda: controller.show_frame("StartPage"))
-#         # button.pack()
-#
-#
-# if __name__ == "__main__":
-#     app = SampleApp()
-#     app.title("Login form")
-#     # app.geometry('800x440')
-#     app.configure(bg='#333333')
-#     app.mainloop()

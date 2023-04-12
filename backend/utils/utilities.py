@@ -4,7 +4,7 @@ import numpy as np
 
 def rect_contour(contours):
     rect_con = []
-    for i in contours:
+    for i in list(filter(lambda x: cv2.contourArea(x) > 200, contours)):
         area = cv2.contourArea(i)
         if area > 200:
 
@@ -14,6 +14,7 @@ def rect_contour(contours):
                 rect_con.append(i)
                 # print(area)
     rect_con = sorted(rect_con, key=cv2.contourArea, reverse=True)
+    print(len(rect_con))
     return rect_con
 
 

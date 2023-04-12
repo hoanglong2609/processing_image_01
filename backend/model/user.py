@@ -8,6 +8,7 @@ class User(BaseModel):
     code = CharField()
     password = CharField()
     name = CharField()
+    mail = CharField()
     subject_ids = AnyField()
     role = IntegerField()
 

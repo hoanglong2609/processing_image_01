@@ -17,6 +17,19 @@ def get_students(conditions: dict = None):
     return students
 
 
+def get_scores(conditions: dict = None):
+    url = 'score'
+    if conditions:
+        url = f'{url}/?{urllib.parse.urlencode(conditions)}'
+
+    scores = api.get(url).json()
+    scores = list(
+        map(lambda x: {'id': x['id'], 'code': x['code'], 'score': x['score']}, scores)
+    )
+
+    return scores
+
+
 def bind_data_to_table(window, cols, rows):
     table = ttk.Treeview(window)
 
@@ -42,13 +55,13 @@ def build_table(window, cols, rows, place: dict):
     return table
 
 
-def process_result(image, is_grading=True):
+def process_result(image, is_grading=True, subject_id=None):
     data = api.post(
         'processing_image/base64_img',
         json={
             'image': image.decode("utf-8"),
             'is_result': not is_grading,
-            'subject': 1
+            'subject': subject_id
         }
     )
 

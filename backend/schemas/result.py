@@ -7,7 +7,7 @@ class Result(BaseSchemas):
     id: int
     code: int
     image: str
-    subject: Subject
+    subject: int
     result: List[int]
 
 

@@ -3,6 +3,7 @@ create table "user"
     id bigserial not null,
     code text,
     name text,
+    mail text,
     password text,
     subject_ids bigint[],
     role int,
