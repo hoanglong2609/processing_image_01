@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   backend:
-    container_name: processing_image_backend
+    container_name: processing_image_backend_1
     image: bangtx/jfga_backend
     env_file: backend/.env
     volumes:
@@ -14,7 +14,7 @@ services:
     entrypoint: [ "poetry", "run" ]
     command: [ "uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "2100" ]
   db:
-    container_name: processing_image_db
+    container_name: processing_image_db_1
     image: postgres:14
     ports:
       - "2200:5432"

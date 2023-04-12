@@ -46,6 +46,7 @@ def on_save_master(dialog, entries, screen, id=None):
                 api.put(f'user/{id}', json=data)
                 print(data)
             else:
+                print(data)
                 api.post(f'user/create', json=data)
         except:
             messagebox.showerror('info', 'create failed')
@@ -65,9 +66,10 @@ def on_save_master(dialog, entries, screen, id=None):
 def dialog(screen, id=None):
     dialog = Toplevel()
     dialog.title('Dialog')
-    dialog.geometry('340x250' if screen == 'subject' else '500x250')
+    dialog.geometry('340x250' if screen == 'subject' else '500x350')
     Label(dialog, **label_info).place(x=0, y=0, width=340 if screen == 'subject' else 500, height=350)
 
+    default_data = None
     if id:
         if screen == 'subject':
             default_data = api.get(screen, {'id': id}).json()[0]
@@ -99,6 +101,11 @@ def dialog(screen, id=None):
                 'object': Entry(dialog),
                 'label': Label(dialog, text='name', **label_info),
                 'place': {'width': 100, 'height': 25, 'x': 250, 'y': 100}
+            },
+            'mail': {
+                'object': Entry(dialog),
+                'label': Label(dialog, text='mail', **label_info),
+                'place': {'width': 100, 'height': 25, 'x': 250, 'y': 200}
             }
         }
 
@@ -123,20 +130,21 @@ def dialog(screen, id=None):
             if entry_key == 'subject':
                 for index, subject in enumerate(subjects):
                     value['object'].insert(END, subject['name'])
-                    if subject in default_data['subjects']:
+                    if default_data and subject in default_data['subjects']:
                         value['object'].select_set(index)
             if id and entry_key != 'subject':
                 value['object'].insert(0, default_data[entry_key])
 
     Button(
         dialog, **label_info, text='Save', command=lambda: on_save_master(dialog, entries, screen, id)
-    ).place(x=250, y=200, height=25, width=100)
+    ).place(x=250, y=300, height=25, width=100)
 
 
 def master_page_detail(type):
     def handle_update(event):
-        id = table.item(table.focus())['values'][0]
-        dialog(type, id)
+        if table.item(table.focus()):
+            id = table.item(table.focus())['values'][0]
+            dialog(type, id)
 
     Label(window, **small_label_info).place(width=800, height=440, x=0, y=0)
     if type == 'subject':
