@@ -21,3 +21,12 @@ def create_subject(subject: subject_schemas.SubjectCreate):
 def update_subject(id: int, subject: subject_schemas.SubjectCreate):
     return Subject.update(**subject.dict()).where(Subject.id == id).execute()
 
+
+@router.post('/login')
+def sign_in(subject: subject_schemas.Login):
+    """User login"""
+    query = Subject.get_list(**subject.dict())
+    if query:
+        return {"code": 200, "data": query[0]}
+    else:
+        return {"code": 400, "data": query}

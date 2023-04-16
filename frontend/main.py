@@ -66,7 +66,7 @@ def on_save_master(dialog, entries, screen, id=None):
 def dialog(screen, id=None):
     dialog = Toplevel()
     dialog.title('Dialog')
-    dialog.geometry('340x250' if screen == 'subject' else '500x350')
+    dialog.geometry('340x350' if screen == 'subject' else '500x350')
     Label(dialog, **label_info).place(x=0, y=0, width=340 if screen == 'subject' else 500, height=350)
 
     default_data = None

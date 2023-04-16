@@ -23,6 +23,7 @@ class User(BaseModel):
                 cls.code,
                 cls.name,
                 cls.role,
+                cls.mail,
                 fn.array_agg(
                     fn.json_build_object(
                         'id', Subject.id,
