@@ -83,6 +83,11 @@ def dialog(screen, id=None):
                 'object': Entry(dialog),
                 'label': Label(dialog, text='name', **label_info),
                 'place': {'width': 100, 'height': 25, 'x': 0, 'y': 50}
+            },
+            'password': {
+                'object': Entry(dialog),
+                'label': Label(dialog, text='password', **label_info),
+                'place': {'width': 100, 'height': 25, 'x': 0, 'y': 100}
             }
         }
     else:
@@ -119,7 +124,7 @@ def dialog(screen, id=None):
                 y=value['place']['y']
             )
             if id:
-                value['object'].insert(0, default_data['name'])
+                value['object'].insert(0, default_data[entry_key])
         else:
             value['object'].place(
                 width=200,
@@ -225,10 +230,31 @@ def processing_page(is_grading):
     Label(window, **small_label_info).place(width=800, height=440, x=0, y=0)
     Label(window, text='Choose File', **small_label_info).place(width=100, height=30, x=10, y=10)
 
+    def login_subject_screen(event):
+        def on_login_subject():
+            subject_name = subject_combobox.get()
+            subject_id = list(filter(lambda x: x['name'] == subject_name, subjects))[0]['id']
+            response = api.post('subject/login', json={'id': subject_id, 'password': password_entry.get()}).json()
+            dialog.destroy()
+            if response['code'] == 200:
+                sub_btn['state'] = 'normal'
+            else:
+                messagebox.showerror('login', 'wrong password')
+
+        dialog = Toplevel()
+        dialog.title('Dialog')
+        dialog.geometry('250x200')
+        Label(dialog, **label_info).place(x=0, y=0, width=340, height=250)
+        Label(dialog, **label_info, text='Enter subject password').place(x=0, y=0, width=250, height=50)
+        password_entry = Entry(dialog, show="*", font=("Arial", 16))
+        password_entry.place(**{'width': 200, 'height': 25, 'x': 20, 'y': 50})
+        Button(dialog, text='Submit', command=on_login_subject).place(x=50, y=125, width=100, height=25)
+
     subject_combobox = ttk.Combobox(window)
     subjects = api.get('subject').json()
     subject_combobox['value'] = list(map(lambda x: x['name'], subjects))
     subject_combobox.place(width=150, height=25, x=210, y=12)
+    subject_combobox.bind('<<ComboboxSelected>>', login_subject_screen)
 
     Button(
         window, text='Choose', bg="#FF3399", fg="#FFFFFF", font=("Arial", 12), command=on_open_file_dialog
@@ -236,10 +262,12 @@ def processing_page(is_grading):
     Button(
         window, text='Back', bg="#FF3399", fg="#FFFFFF", font=("Arial", 12), command=home_screen
     ).place(width=70, height=25, x=570, y=12)
-    Button(
+    sub_btn = Button(
         window, text='Create result' if not is_grading else 'Grading', bg="#FF3399", fg="#FFFFFF", font=("Arial", 12),
+        state='disabled',
         command=lambda: on_process_result(MyImage.base64_image, is_grading, subject_combobox)
-    ).place(
+    )
+    sub_btn.place(
         width=100, height=25, x=670, y=10
     )
     # file_input = filedialog.askopenfilename(filetypes=[('Jpg Files', '*.jpg'), ('PNG Files', '*.png')])
@@ -259,9 +287,11 @@ def subject_page():
         dialog = Toplevel()
         dialog.title('score')
         dialog.geometry('340x350')
-        item = subject_table.item(subject_table.focus())
-        row = item['values']
-        scores = get_scores({'subject': row[0]})
+        item_sub = subject_table.item(subject_table.focus())
+        item_stu = students_table.item(students_table.focus())
+        sub = item_sub['values']
+        stu = item_stu['values']
+        scores = get_scores({'subject': sub[0], 'student': stu[0]})
         header_score_table = (
             {'name': 'id', 'text': 'Id', 'width': 100},
             {'name': 'code', 'text': 'code', 'width': 100},
@@ -376,8 +406,8 @@ username_label = Label(
     window, text="Username", bg='#333333', fg="#FFFFFF", font=("Arial", 16))
 username_entry = Entry(window, font=("Arial", 16))
 password_entry = Entry(window, show="*", font=("Arial", 16))
-username_entry.insert(0, 'anhnv')
-password_entry.insert(0, '1')
+username_entry.insert(0, 'admin')
+password_entry.insert(0, 'admin')
 password_label = Label(
     window, text="Password", bg='#333333', fg="#FFFFFF", font=("Arial", 16))
 login_button = Button(
