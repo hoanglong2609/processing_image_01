@@ -49,6 +49,48 @@ class Score(BaseModel):
         return super().create(**data)
 
     @classmethod
+    def update_one(cls, id, image, code, subject, student, filled_cell):
+        result = Result.get_or_none(subject=subject, code=code)
+        image = Image.create(b64decode(image)).id
+        if not student:
+            raise HTTPException(400, 'result not exists')
+        result = model_to_dict(result)
+
+        score = 0
+
+        for index, cell in enumerate(result['result']):
+            if index < len(filled_cell):
+                print(cell == filled_cell)
+                score += (1 if cell == filled_cell[index] else 0)
+
+        data = {
+            'student': student,
+            'code': code,
+            'subject': subject,
+            'filled_cell': filled_cell,
+            'score': score,
+            'image': image
+        }
+
+        return cls.update(**data).where(cls.id == id).execute()
+
+    @classmethod
+    def update_by_subject_and_code(cls, subject, code):
+        scores = cls.get_list(subject=subject, code=code)
+        result = Result.get_or_none(subject=subject, code=code)
+
+        if not result:
+            raise HTTPException(400, 'no result')
+
+        for score_data in scores:
+            # print(score_data)
+            score = 0
+            for index, cell in enumerate(score_data['filled_cell']):
+                if index < len(result.result):
+                    score += (1 if cell == result.result[index] else 0)
+            cls.update(**{'score': score}).where(cls.id == score_data['id']).execute()
+
+    @classmethod
     def handle_select(cls, **kwargs):
         return (
             cls.select(
@@ -73,4 +115,3 @@ class Score(BaseModel):
                 Image, on=Image.id == cls.image
             )
         )
-

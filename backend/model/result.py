@@ -43,3 +43,9 @@ class Result(BaseModel):
         )
 
         return query
+
+    @classmethod
+    def update_one(cls, id, image, data):
+        image = Image.create(b64decode(image))
+        data['image'] = image.id
+        return cls.update(**data).where(cls.id == id).execute()

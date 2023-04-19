@@ -1,3 +1,4 @@
+
 from api import api
 import urllib.parse
 from tkinter import ttk
@@ -55,14 +56,17 @@ def build_table(window, cols, rows, place: dict):
     return table
 
 
-def process_result(image, is_grading=True, subject_id=None):
+def process_result(image, is_grading=True, subject_id=None, is_overwrite=False, grading_again=False):
     data = api.post(
         'processing_image/base64_img',
         json={
             'image': image.decode("utf-8"),
             'is_result': not is_grading,
-            'subject': subject_id
+            'subject': subject_id,
+            'is_overwrite': is_overwrite,
+            'grading_again': grading_again
         }
     )
-
-    print(data.json())
+    if data:
+        return data.json()
+    return None

@@ -23,3 +23,5 @@ class ProcessingImage(BaseSchemas):
     image: str
     is_result: bool = False
     subject: int = None
+    is_overwrite: bool = False
+    grading_again: bool = False

@@ -204,10 +204,50 @@ def master_page():
 
 
 def on_process_result(base64_image, is_grading, subject_combobox):
+    def duplicate_dialog():
+        def on_yes():
+            grading_again_dialog()
+            # process_result(base64_image, is_grading, subject_id, True)
+            dialog.destroy()
+
+        def grading_again_dialog():
+            def on_grading_again(is_overwrite):
+                process_result(base64_image, is_grading, subject_id, True, is_overwrite)
+                grading_dialog.destroy()
+
+            grading_dialog = Toplevel()
+            grading_dialog.title('Dialog')
+            grading_dialog.geometry('250x200')
+            Label(grading_dialog, **label_info).place(x=0, y=0, width=250, height=200)
+            Label(
+                grading_dialog, **label_info, text='grading again?'
+            ).place(x=0, y=0, width=250, height=50)
+            Button(
+                grading_dialog, text='No', command=lambda: on_grading_again(False)
+            ).place(x=25, y=50, width=75, height=25)
+            Button(
+                grading_dialog, text='Yes', command=lambda: on_grading_again(True)
+            ).place(x=150, y=50, width=75, height=25)
+
+        dialog = Toplevel()
+        dialog.title('Dialog')
+        dialog.geometry('250x200')
+        Label(dialog, **label_info).place(x=0, y=0, width=340, height=250)
+        Label(
+            dialog, **label_info, text='Duplicate, would you like overwrite?'
+        ).place(x=0, y=0, width=250, height=50)
+        Button(
+            dialog, text='No', command=lambda: dialog.destroy()
+        ).place(x=25, y=50, width=75, height=25)
+        Button(dialog, text='Yes', command=on_yes).place(x=150, y=50, width=75, height=25)
+
     subjects = api.get('subject').json()
     subject_name = subject_combobox.get()
     subject_id = list(filter(lambda x: x['name'] == subject_name, subjects))[0]['id']
-    process_result(base64_image, is_grading, subject_id)
+    response = process_result(base64_image, is_grading, subject_id)
+    print(response)
+    if response and 'status' in response:
+        duplicate_dialog()
 
 
 def on_open_file_dialog():

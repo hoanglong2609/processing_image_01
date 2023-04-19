@@ -6,6 +6,7 @@ from schemas.result import ProcessingImage
 from base64 import b64decode
 from model.result import Result
 from model.score import Score
+from model.user import User
 
 router = APIRouter()
 
@@ -14,7 +15,9 @@ router = APIRouter()
 async def processing(file: ProcessingImage):
     with open("imageToSave.png", "wb") as fh:
         fh.write(b64decode(file.image))
-    return processing_image('imageToSave.png', file.is_result, file.image, file.subject)
+    return processing_image(
+        'imageToSave.png', file.is_result, file.image, file.subject, file.is_overwrite, file.grading_again
+    )
 
 
 @router.post('/')
@@ -124,7 +127,7 @@ async def create_file(file: bytes = File()):
     return result
 
 
-def processing_image(path, is_result, image, subject):
+def processing_image(path, is_result, image, subject, is_overwrite=False, grading_again=False):
     img = cv2.resize(cv2.imread(path), (660, 600))
     # im_cv = cv2.imread(im_path)
     img2 = img.copy()
@@ -224,13 +227,38 @@ def processing_image(path, is_result, image, subject):
         result['result'] = list(map(lambda x: int(x), list(result['result'])))
         # feature of teacher: create result
         if is_result:
-            Result.create(image, **{'code': result['code'], 'subject': subject, 'result': result['result']})
+            # check duplicate
+            result_exists = Result.get_or_none(code=result['code'], subject=subject)
+
+            if result_exists:
+                if is_overwrite:
+                    Result.update_one(
+                        result_exists.id,
+                        image,
+                        {'code': result['code'], 'subject': subject, 'result': result['result']}
+                    )
+
+                    if grading_again:
+                        Score.update_by_subject_and_code(subject, result['code'])
+
+                else:
+                    return {'status': 400, 'msg': 'result already exists'}
+            else:
+                Result.create(image, **{'code': result['code'], 'subject': subject, 'result': result['result']})
 
         # save score of student
         else:
-            Score.create(image, **{
-                'code': result['code'], 'subject': subject, 'filled_cell': result['result'], 'student': result['student']
-            })
+            # check is exists
+            student = User.get_or_none(code=result['student'])
+            score_exists = Score.get_or_none(code=result['code'], subject=subject, student=student.id)
+            if score_exists:
+                Score.update_one(score_exists.id, image, **{
+                    'code': result['code'], 'subject': subject, 'filled_cell': result['result'], 'student': student.id
+                })
+            else:
+                Score.create(image, **{
+                    'code': result['code'], 'subject': subject, 'filled_cell': result['result'], 'student': result['student']
+                })
 
     return result
 
@@ -292,19 +320,14 @@ def find_filled_cell(matrix, size_ans, is_result):
         # # img_Ma_De = cv2.warpPerspective(img_gray, matrix2, (90, 100))
         # img_Ma_De = cv2.warpPerspective(img_gray, matrix2, (660, 600))
         # img_Ma_De_mau = cv2.warpPerspective(img2, matrix2, (660, 600))
-
         #######################################
-
         imgThersh_ma_de = cv2.threshold(img_Ma_De, 100, 255, cv2.THRESH_BINARY_INV)[1]
         matran_ma_de = utilities.split_boxes(imgThersh_ma_de, 10, 3)
-
         imgThersh_ma_de_tem = cv2.resize(imgThersh_ma_de, (150, 150))
         cv2.imwrite("imgThersh_ma_de.jpg", imgThersh_ma_de_tem)
-
         toado_ma_deC = 0
         toado_ma_deR = 0
         myPixel_ma_de = np.zeros((10, 3))
-
         for image2 in matran_ma_de:
             total_mssv = cv2.countNonZero(image2)
             myPixel_ma_de[toado_ma_deR][toado_ma_deC] = total_mssv
@@ -312,20 +335,15 @@ def find_filled_cell(matrix, size_ans, is_result):
             if toado_ma_deC == 3:
                 toado_ma_deR += 1
                 toado_ma_deC = 0
-
         myPixel_ma_de = np.transpose(myPixel_ma_de)
-
         myIndex_ma_de = []
         for x in range(0, 3):
             arr = myPixel_ma_de[x]
             myIndex_ma_de_val = np.where(arr == np.amax(arr))
-
             myIndex_ma_de.append(myIndex_ma_de_val[0][0])
-
         ma_de = ""
         for u in range(len(myIndex_ma_de)):
             ma_de = ma_de + str(myIndex_ma_de[u])
-
         # for i in range(len(made_goc)):
         #
         #     if int(ma_de) == made_goc[i]:
@@ -333,9 +351,7 @@ def find_filled_cell(matrix, size_ans, is_result):
         #         trongSo = trongSo_goc[i]
         #         diemSai = dsdiemTru[i]
         print(ma_de)
-
         ######################################
-
         # imgThersh_tra_loi = cv2.threshold(imgTraLoi, 100, 255, cv2.THRESH_BINARY_INV)[1]
         #
         # imgThersh_tra_loi = imgThersh_tra_loi[10: 990, 15:640]
@@ -358,7 +374,6 @@ def find_filled_cell(matrix, size_ans, is_result):
         #     if contC == column:
         #         contR += 1
         #         contC = 0
-
         # myIndex = []
         # if soCau >= 25:
         #     cauHoiCot1 = 25
