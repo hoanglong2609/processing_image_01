@@ -11,11 +11,7 @@
       <change beforePath="$PROJECT_DIR$/backend/img_thershcode.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershcode.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/img_thershresult.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershresult.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/img_thershstudent.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershstudent.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/score.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/router/processing_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/processing_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/schemas/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/schemas/result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/common.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +117,7 @@
       <workItem from="1681526747927" duration="684000" />
       <workItem from="1681610735763" duration="3535000" />
       <workItem from="1681629258634" duration="869000" />
-      <workItem from="1681906496658" duration="5426000" />
+      <workItem from="1681906496658" duration="6041000" />
     </task>
     <task id="LOCAL-00001" summary="temp commit">
       <created>1680174157595</created>
@@ -165,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681611584608</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="login before create result and grading.">
+      <created>1681913349326</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681913349326</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,7 +181,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="login before create result and grading." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/processing_image_L2$main.coverage" NAME="main Coverage Results" MODIFIED="1681912785261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
+    <SUITE FILE_PATH="coverage/processing_image_L2$main.coverage" NAME="main Coverage Results" MODIFIED="1681913076513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
     <SUITE FILE_PATH="coverage/processing_image$main.coverage" NAME="main Coverage Results" MODIFIED="1680145297160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
   </component>
 </project>

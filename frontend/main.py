@@ -248,6 +248,8 @@ def on_process_result(base64_image, is_grading, subject_combobox):
     print(response)
     if response and 'status' in response:
         duplicate_dialog()
+    if response and response['msg'] == 'student not in this class':
+        messagebox.showerror('info', 'student not in this class')
 
 
 def on_open_file_dialog():

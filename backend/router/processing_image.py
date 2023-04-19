@@ -250,16 +250,18 @@ def processing_image(path, is_result, image, subject, is_overwrite=False, gradin
         else:
             # check is exists
             student = User.get_or_none(code=result['student'])
-            score_exists = Score.get_or_none(code=result['code'], subject=subject, student=student.id)
-            if score_exists:
-                Score.update_one(score_exists.id, image, **{
-                    'code': result['code'], 'subject': subject, 'filled_cell': result['result'], 'student': student.id
-                })
+            if subject in student.subject_ids:
+                score_exists = Score.get_or_none(code=result['code'], subject=subject, student=student.id)
+                if score_exists:
+                    Score.update_one(score_exists.id, image, **{
+                        'code': result['code'], 'subject': subject, 'filled_cell': result['result'], 'student': student.id
+                    })
+                else:
+                    Score.create(image, **{
+                        'code': result['code'], 'subject': subject, 'filled_cell': result['result'], 'student': result['student']
+                    })
             else:
-                Score.create(image, **{
-                    'code': result['code'], 'subject': subject, 'filled_cell': result['result'], 'student': result['student']
-                })
-
+                return {'msg': 'student not in this class'}
     return result
 
 
