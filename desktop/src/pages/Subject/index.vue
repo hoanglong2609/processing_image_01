@@ -1,5 +1,6 @@
 <template lang="pug">
   div
+    header-bar
     h2.text-center.clr-red.pt-2 Subjects
     j-master-menu-component(
       :search-info="searchInfo"
@@ -30,12 +31,12 @@
 
 <script>
 import {defineComponent, onMounted, ref, getCurrentInstance} from "vue";
-import {JMasterItemList, SubjectDialog, JMasterMenuComponent} from '@/components'
+import {JMasterItemList, SubjectDialog, JMasterMenuComponent, HeaderBar} from '@/components'
 import {getData, urlPath, headers, actions, deleteData} from "@/utils";
 import {debounce} from 'lodash'
 
 const Subject = defineComponent({
-  components: {JMasterItemList, SubjectDialog, JMasterMenuComponent},
+  components: {JMasterItemList, SubjectDialog, JMasterMenuComponent, HeaderBar},
   setup() {
     const instance = getCurrentInstance().proxy
     const {$router} = instance

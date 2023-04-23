@@ -1,5 +1,6 @@
 <template lang="pug">
   div
+    header-bar
     h2.text-center.clr-red.pt-2 User
     j-master-menu-component(
       :search-info="searchInfo"
@@ -41,12 +42,12 @@
 
 <script>
 import {defineComponent, onMounted, ref, getCurrentInstance} from "vue";
-import {JMasterItemList, UserDialog, JMasterMenuComponent} from '@/components'
+import {JMasterItemList, UserDialog, JMasterMenuComponent, HeaderBar} from '@/components'
 import {getData, urlPath, actions, deleteData} from "@/utils";
 import {debounce} from "lodash";
 
 const Student = defineComponent({
-  components: {JMasterItemList, UserDialog, JMasterMenuComponent},
+  components: {JMasterItemList, UserDialog, JMasterMenuComponent, HeaderBar},
   setup() {
     const instance = getCurrentInstance().proxy
     const {$router, $route} = instance

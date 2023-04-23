@@ -1,5 +1,6 @@
 <template lang="pug">
   div
+    header-bar
     processing-image-base(
       ref="processing_image_base"
       mode="Grading"
@@ -8,10 +9,10 @@
 
 <script>
 import {defineComponent} from "vue";
-import {ProcessingImageBase} from '@/components'
+import {ProcessingImageBase, HeaderBar} from '@/components'
 
 const Grading = defineComponent({
-  components: {ProcessingImageBase},
+  components: {ProcessingImageBase, HeaderBar},
   setup() {
     return {}
   }

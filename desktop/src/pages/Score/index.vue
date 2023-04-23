@@ -1,5 +1,6 @@
 <template lang="pug">
   div
+    header-bar
     h2.text-center.clr-red.pt-2 Score
     j-master-item-list.pa-2(
       :headers="headers"
@@ -12,11 +13,11 @@
 
 <script>
 import {defineComponent, onMounted, ref, getCurrentInstance} from "vue";
-import {JMasterItemList} from '@/components'
+import {JMasterItemList, HeaderBar} from '@/components'
 import {getData, urlPath, actions} from "@/utils";
 
 const Score = defineComponent({
-  components: {JMasterItemList},
+  components: {JMasterItemList, HeaderBar},
   setup() {
     const instance = getCurrentInstance().proxy
     const {$router, $route} = instance
