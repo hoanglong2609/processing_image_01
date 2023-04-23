@@ -21,7 +21,7 @@
     )
     v-text-field(
       ref="name"
-      label="name"
+      label="mail"
       v-model="masterData.mail"
     )
     v-autocomplete(

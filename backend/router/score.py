@@ -9,3 +9,8 @@ router = APIRouter()
 @router.get('/')
 def get_scores(student: int = None, subject: int = None):
     return ScoreModel.get_list(student=student, subject=subject)
+
+
+@router.get('/csv')
+def down_load_csv(subject: int):
+    return ScoreModel.to_csv(subject=subject)

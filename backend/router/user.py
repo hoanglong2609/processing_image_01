@@ -32,6 +32,14 @@ def create_account(user: users_chemas.UserCreate):
     return model_to_dict(User.create(**user.dict()))
 
 
+@router.post('/change_password')
+def change_password(payload: users_chemas.ChangePassword):
+    user = User.get_or_none(id=payload.id, password=payload.old_password)
+    if not user:
+        raise HTTPException(400, 'wrong password')
+    User.update(password=payload.new_password).where(User.id == payload.id).execute()
+
+
 @router.post('/login')
 def sign_in(user: Login):
     """User login"""

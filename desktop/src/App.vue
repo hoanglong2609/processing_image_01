@@ -12,7 +12,7 @@
     v-navigation-drawer(v-model='drawer' absolute='' temporary='')
       v-list-item
         v-list-item-content
-          v-list-item-title {{user}}
+          v-list-item-title {{user?.name || ''}}
       v-divider
       v-list(dense='')
         v-list-item(v-for='item in menus' :key='item.text' link='' @click="goto(item)")
@@ -20,32 +20,59 @@
             v-icon {{ item.icon }}
           v-list-item-content
             v-list-item-title {{ item.text }}
-
+    change-password-dialog(
+      :show="openChangePasswordDialog"
+      @on-close="openChangePasswordDialog = false"
+    )
 </template>
 
 <script>
+import {defineComponent, ref, getCurrentInstance} from "vue";
 import {urlPath} from '@/utils'
-export default {
+import {ChangePasswordDialog} from '@/components'
+export default defineComponent({
   name: 'App',
+  components: {ChangePasswordDialog},
+  setup() {
+    const instance = getCurrentInstance().proxy
+    const {$router} = instance
+    const user = JSON.parse(localStorage.getItem('user'))
+    const drawer = ref(false)
+    const openChangePasswordDialog = ref(false)
+    const menus = user.role === 1
+      ?
+        [
+          {icon: 'mdi-clipboard-list-outline', text: 'Danh Sách Lớp', page: urlPath.Subject},
+          {icon: 'mdi-notebook-check-outline', text: 'Chấm Điểm', page: urlPath.Grading},
+          {icon: 'mdi-notebook-plus-outline', text: 'Tạo Đáp Án', page: urlPath.CreateResult},
+          {icon: 'mdi-key-outline', text: 'Đổi mật khẩu', page: null},
+          {icon: 'mdi-logout', text: 'Logout', page: urlPath.Login}
+        ]
+      : [
+          {icon: 'mdi-clipboard-list-outline', text: 'Danh Sách Lớp', page: urlPath.Subject},
+          {icon: 'mdi-key-outline', text: 'Đổi mật khẩu', page: null},
+          {icon: 'mdi-logout', text: 'Logout', page: urlPath.Login}
+        ]
 
-  data: () => ({
-    drawer: false,
-    menus: [
-      {icon: 'mdi-clipboard-list-outline', text: 'Danh Sách Lớp', page: urlPath.Subject},
-      {icon: 'mdi-notebook-check-outline', text: 'Chấm Điểm', page: urlPath.Grading},
-      {icon: 'mdi-notebook-plus-outline', text: 'Tạo Đáp Án', page: urlPath.CreateResult},
-      {icon: 'mdi-logout', text: 'Logout', page: urlPath.Login}
-    ],
-    user: JSON.parse(localStorage.getItem('user'))?.name
-  }),
-  methods: {
-    back() {
-      this.$router.back()
-    },
-    goto(menu) {
+    const back = () => {
+      $router.back()
+    }
+    const goto = (menu) => {
+      if (menu.text === 'Đổi mật khẩu') {
+        openChangePasswordDialog.value = true
+        return
+      }
       if (menu.text === 'Logout') localStorage.clear()
-      this.$router.push({name: menu.page.name}).catch(() => {})
+      $router.push({name: menu.page.name}).catch(() => {})
+    }
+    return {
+      user,
+      drawer,
+      menus,
+      openChangePasswordDialog,
+      goto,
+      back
     }
   }
-};
+})
 </script>

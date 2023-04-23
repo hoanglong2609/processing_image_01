@@ -37,12 +37,6 @@ const Score = defineComponent({
         text: 'score',
         sortable: false,
         value: 'score'
-      },
-      {
-        text: '',
-        align: 'right',
-        sortable: false,
-        value: 'action',
       }
     ]
 

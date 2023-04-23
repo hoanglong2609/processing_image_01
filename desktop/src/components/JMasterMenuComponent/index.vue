@@ -11,7 +11,10 @@
     )
 
     div.pl-10
-      v-btn.mr-2.hidden-xs-only.button(color="primary" dark @click="$emit('open-add-dialog')")
+      v-btn.mr-2.button(v-if="downloadScore" color="primary" dark @click="onDownload")
+        v-icon mdi-cloud-download-outline
+        span Download Score
+      v-btn.mr-2.button(v-if="user.role === 1" color="primary" dark @click="$emit('open-add-dialog')")
         v-icon mdi-plus
         span Add
 
@@ -19,18 +22,38 @@
 
 <script>
 import {defineComponent, getCurrentInstance, ref, watch} from 'vue'
+import {api} from "@/plugins";
 
 export default defineComponent({
   props: {
     searchInfo: {
       type: String,
       required: true
+    },
+    downloadScore: {
+      default: false
     }
   },
   setup(props, {emit}) {
     const instance = getCurrentInstance()
-    const {$toast, $root} = instance.proxy
+    const {$route, $toast} = instance.proxy
     const searchInfoValue = ref(props.searchInfo || '')
+    const user = JSON.parse(localStorage.getItem('user'))
+
+    const onDownload = async () => {
+      const {subject} = $route.query
+      try {
+        const {data} = await api.get(`/score/csv?subject=${subject}`)
+
+        const blob = new Blob([data], { type: 'application/csv' })
+        const link = document.createElement('a')
+        link.href = URL.createObjectURL(blob)
+        link.click()
+        URL.revokeObjectURL(link.href)
+      } catch (e) {
+        $toast.error('Download failed')
+      }
+    }
     const onInput = () => {
       emit('inputting', searchInfoValue.value)
     }
@@ -44,7 +67,9 @@ export default defineComponent({
 
     return {
       onInput,
-      searchInfoValue
+      searchInfoValue,
+      onDownload,
+      user
     }
   }
 })

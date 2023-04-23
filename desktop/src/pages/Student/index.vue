@@ -3,6 +3,7 @@
     h2.text-center.clr-red.pt-2 User
     j-master-menu-component(
       :search-info="searchInfo"
+      :download-score="true"
       @inputting="handleSearchInput"
       @open-add-dialog="curUser = null, isOpenDialog = true"
     )
@@ -83,6 +84,7 @@ const Student = defineComponent({
         user: {subject: subject, search_info: searchInfo.value}
       })
       students.value = data.users
+      instance.$forceUpdate()
     }
 
     const onDelete = async () => {

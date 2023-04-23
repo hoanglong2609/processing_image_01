@@ -47,6 +47,7 @@ const Subject = defineComponent({
     const init = async () => {
       const data = await getData('/subject/', {subject: {search_info: searchInfo.value}})
       subjects.value = data.subjects
+      instance.$forceUpdate()
     }
 
     const handleSearchInput = debounce((value) => {

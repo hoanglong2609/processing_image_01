@@ -8,7 +8,8 @@ from model.subject import Subject
 from model.result import Result
 from base64 import b64decode
 from fastapi import HTTPException
-
+from utils.my_csv import write_csv
+from fastapi.responses import FileResponse
 
 class Score(BaseModel):
     student = ForeignKeyField(User)
@@ -97,7 +98,7 @@ class Score(BaseModel):
             cls.select(
                 cls.id,
                 fn.json_build_object(
-                    'id', User.id, 'name', User.name
+                    'id', User.id, 'name', User.name, 'code', User.code, 'mail', User.mail
                 ).alias('student'),
                 cls.code,
                 cls.score,
@@ -116,3 +117,26 @@ class Score(BaseModel):
                 Image, on=Image.id == cls.image
             )
         )
+
+    @classmethod
+    def to_csv(cls, subject):
+        scores = cls.get_list(subject=subject)
+
+        fields = ['id', 'subject', 'code', 'name', 'mail', 'score']
+        header = fields
+        rows = [header]
+
+        # items of csv
+        for score in scores:
+            rows.append([
+                score['id'],
+                score['subject']['name'],
+                score['student']['code'],
+                score['student']['name'],
+                score['student']['mail'],
+                score['score'],
+            ])
+        # render csv
+        path = 'tmp/example.csv'
+        write_csv('tmp/example.csv', rows)
+        return FileResponse(path, media_type='application/octet-stream')
