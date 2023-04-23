@@ -8,11 +8,11 @@ router = APIRouter()
 
 
 @router.get('/', response_model=List[subject_schemas.Subject])
-def get_subject(id=None):
-    return Subject.get_list(id=id)
+def get_subject(id=None, search_info: str = None):
+    return Subject.get_list(id=id, search_info=search_info)
 
 
-@router.post('/create')
+@router.post('/')
 def create_subject(subject: subject_schemas.SubjectCreate):
     return model_to_dict(Subject.create(**subject.dict()))
 
@@ -30,3 +30,8 @@ def sign_in(subject: subject_schemas.Login):
         return {"code": 200, "data": query[0]}
     else:
         return {"code": 400, "data": query}
+
+
+@router.delete('/{id}')
+def delete_subject(id: int):
+    return Subject.delete_by_id(id)

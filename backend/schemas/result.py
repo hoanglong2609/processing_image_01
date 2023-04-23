@@ -20,7 +20,7 @@ class ResultCreate(BaseSchemas):
 
 
 class ProcessingImage(BaseSchemas):
-    image: str
+    image: List[str]
     is_result: bool = False
     subject: int = None
     is_overwrite: bool = False

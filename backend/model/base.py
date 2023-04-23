@@ -4,7 +4,6 @@ from operator import attrgetter
 
 
 class BaseModel(Model):
-    
     class Meta:
         database = db
 
@@ -16,7 +15,9 @@ class BaseModel(Model):
             if key in cls._meta.fields:
                 if value is not None:
                     query = query.where(attrgetter(key)(cls) == value)
-
+            if key == 'search_info' and value:
+                if value != '':
+                    query = query.where(cls.name.contains(value.lower()))
         query = query.dicts()
 
         return list(query)

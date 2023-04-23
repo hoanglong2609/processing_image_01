@@ -28,6 +28,8 @@ class Score(BaseModel):
         # get result
         result = Result.get_or_none(code=code, subject=subject)
         if not student:
+            raise HTTPException(400, 'student not exists')
+        if not result:
             raise HTTPException(400, 'result not exists')
         result = model_to_dict(result)
 
@@ -60,8 +62,7 @@ class Score(BaseModel):
 
         for index, cell in enumerate(result['result']):
             if index < len(filled_cell):
-                print(cell == filled_cell)
-                score += (1 if cell == filled_cell[index] else 0)
+                score += (1 if cell == filled_cell[index] else 0) / len(result['result']) * 10
 
         data = {
             'student': student,

@@ -9,8 +9,8 @@ router = APIRouter()
 
 
 @router.get('/')
-def get_account(id: int = None, subject: int = None, role: int = None):
-    return User.get_list(id=id, subject=subject, role=role)
+def get_account(id: int = None, subject: int = None, role: int = None, search_info: str = None):
+    return User.get_list(id=id, subject=subject, role=role, search_info=search_info)
 
 
 @router.get('/forgot')
@@ -24,7 +24,7 @@ def forgot_password(code, gmail: str):
     send_mail(password, gmail)
 
 
-@router.post('/create')
+@router.post('/')
 def create_account(user: users_chemas.UserCreate):
     # check duplicate
     if list(User.select().where(User.code == user.code)):
@@ -45,3 +45,8 @@ def sign_in(user: Login):
 @router.put('/{id}')
 def update_user(id: int, user: users_chemas.UserUpdate):
     return User.update(**user.dict()).where(User.id == id).execute()
+
+
+@router.delete('/{id}')
+def delete_user(id: int):
+    return User.delete_by_id(id)
