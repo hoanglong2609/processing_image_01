@@ -61,14 +61,15 @@ const Subject = defineComponent({
       })
     }
 
-    const updateItem = () => {
+    const updateItem = async () => {
       convertData()
-      updateData('/subject/', masterData.value.id, masterData.value)
+      await updateData('/subject/', masterData.value.id, masterData.value)
       emit('reload')
     }
 
-    const createItem = () => {
-      createData('/subject/', masterData.value)
+    const createItem = async () => {
+      convertData()
+      await createData('/subject/', masterData.value)
       emit('reload')
     }
 

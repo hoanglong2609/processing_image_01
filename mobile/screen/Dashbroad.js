@@ -117,14 +117,31 @@ export default function Dashbroad() {
           </View>
         </View>
 
-
-        <Icon
-          onPress={logOut}
-          size={35}
-          color='#413f52'
-          name='exit-outline'
-          type='ionicon'
-        />
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <Icon
+            onPress={() => navigation.navigate('ChangePassword')}
+            size={35}
+            color='#413f52'
+            name='key-outline'
+            type='ionicon'
+          />
+          <View className="ml-4">
+            <Icon
+              onPress={logOut}
+              size={35}
+              color='#413f52'
+              name='exit-outline'
+              type='ionicon'
+            />
+          </View>
+        </View>
+        
       </View>
       <View
         className="h-[200px] bg-[#252d56] rounded-xl mb-[30px]"

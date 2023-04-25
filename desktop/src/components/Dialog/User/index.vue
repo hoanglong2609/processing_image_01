@@ -79,14 +79,15 @@ const Subject = defineComponent({
       masterData.value.password = masterData.value.code
       masterData.value.role = masterData.value.role ? 1 : 0
     }
-    const updateItem = () => {
+    const updateItem = async () => {
       convertData()
-      updateData('/user/', masterData.value.id, masterData.value)
+      await updateData('/user/', masterData.value.id, masterData.value)
       emit('reload')
     }
 
-    const createItem = () => {
-      createData('/user/', masterData.value)
+    const createItem = async () => {
+      convertData()
+      await createData('/user/', masterData.value)
       emit('reload')
     }
 

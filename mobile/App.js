@@ -9,6 +9,7 @@ import Point from './screen/Point';
 import Result from './screen/Result';
 import ListStudent from './screen/ListStudent';
 import ResetPassword from './screen/ForgotPassword';
+import ChangePassword from './screen/ChangePassword';
 LogBox.ignoreAllLogs();//Ignore all log notifications
 
 export default function App() {
@@ -50,6 +51,16 @@ export default function App() {
         <Stack.Screen
           name="Dashbroad"
           component={Dashbroad}
+          options={{
+            headerMode: 'none',
+            navigationOptions: {
+              headerVisible: false,
+            }
+          }}
+        />
+        <Stack.Screen
+          name="ChangePassword"
+          component={ChangePassword}
           options={{
             headerMode: 'none',
             navigationOptions: {
