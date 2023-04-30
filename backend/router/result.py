@@ -24,4 +24,7 @@ def create_result(result: result_schemas.ResultCreate):
         'subject': result.subject,
         'result': result.result,
     }
-    return ResultModel.create(result.image, **data)
+    result_exists = ResultModel.get_or_none(code=result.code, subject=result.subject)
+    if result_exists:
+        return ResultModel.update_one(result_exists.id, None, data)
+    return ResultModel.create(None, **data)

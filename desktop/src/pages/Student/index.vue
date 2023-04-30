@@ -19,6 +19,7 @@
     )
 
     j-master-item-list.pa-2(
+      v-if="user.role === 3"
       :headers="headers"
       :items="students.filter(s => s.role === 1)"
       :actions="actions"
@@ -49,6 +50,7 @@ import {debounce} from "lodash";
 const Student = defineComponent({
   components: {JMasterItemList, UserDialog, JMasterMenuComponent, HeaderBar},
   setup() {
+    const user = JSON.parse(localStorage.getItem('user'))
     const instance = getCurrentInstance().proxy
     const {$router, $route} = instance
     const isOpenDialog = ref(false)
@@ -122,7 +124,8 @@ const Student = defineComponent({
       isOpenDialog,
       curUser,
       init,
-      onDelete
+      onDelete,
+      user
     }
   }
 })

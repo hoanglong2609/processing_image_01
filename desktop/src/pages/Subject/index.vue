@@ -44,11 +44,16 @@ const Subject = defineComponent({
     const isOpenDialog = ref(false)
     const curSubject = ref(null)
     const searchInfo = ref('')
+    const user = JSON.parse(localStorage.getItem('user'))
 
     const init = async () => {
-      const data = await getData('/subject/', {subject: {search_info: searchInfo.value}})
-      subjects.value = data.subjects
-      instance.$forceUpdate()
+      if (user.role === 3) {
+        const data = await getData('/subject/', {subject: {search_info: searchInfo.value}})
+        subjects.value = data.subjects
+      } else {
+        const data = await getData('/user/', {user: {id: user.id}})
+        subjects.value = data.users[0].subjects
+      }
     }
 
     const handleSearchInput = debounce((value) => {

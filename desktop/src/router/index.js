@@ -64,6 +64,20 @@ const routes = [
     }
   },
   {
+    path: '/manual_create_result',
+    name: 'ManualCreateResult',
+    component: () => import(/* webpackChunkName: "about" */ '../pages/ManualCreateResult/index.vue'),
+    beforeEnter: (to, from, next) => {
+      const token = localStorage.getItem('user')
+      if (token && from.name !== to.name) {
+        store.commit('setTitle', 'ManualCreateResult')
+        next()
+        return
+      }
+      next({ name: 'Login' })
+    }
+  },
+  {
     path: '/grading',
     name: 'Grading',
     component: () => import(/* webpackChunkName: "about" */ '../pages/Grading/index.vue'),

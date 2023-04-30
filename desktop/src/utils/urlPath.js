@@ -1,5 +1,6 @@
 const Grading = {path: '/grading', name: 'Grading'}
 const CreateResult = {path: '/create_result', name: 'CreateResult'}
+const ManualCreateResult = {path: '/manual_create_result', name: 'ManualCreateResult'}
 const Subject = {path: '/', name: 'Subject'}
 const Student = {path: '/student', name: 'Student'}
 const Score = {path: '/score', name: 'Score'}
@@ -11,5 +12,6 @@ export {
   Subject,
   Login,
   Student,
-  Score
+  Score,
+  ManualCreateResult
 }

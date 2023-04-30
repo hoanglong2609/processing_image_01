@@ -59,6 +59,7 @@ const ProcessingImageBase = defineComponent({
     const showLogin = ref(false)
     const showConfirmDialog = ref(false)
     const confirmMsg = ref([])
+    const user = JSON.parse(localStorage.getItem('user'))
 
     const bodyProcess = {
       subject: null,
@@ -102,12 +103,16 @@ const ProcessingImageBase = defineComponent({
     const onLogin = () => {
       isLogin.value = false
       showLogin.value = true
-      console.log('onLogin')
     }
 
     const init = async () => {
-      const data = await getData(['subject'])
-      subjects.value = data.subjects
+      if (user.role === 3) {
+        const data = await getData('/subject/')
+        subjects.value = data.subjects
+      } else {
+        const data = await getData('/user/', {user: {id: user.id}})
+        subjects.value = data.users[0].subjects
+      }
     }
 
     const handleInput = () => {

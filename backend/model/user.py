@@ -30,7 +30,7 @@ class User(BaseModel):
                         'name', Subject.name
                     )
                 ).alias('subjects')
-            ).join(
+            ).left_outer_join(
                 Subject, on=Subject.id == fn.any(cls.subject_ids)
             ).group_by(
                 cls.id

@@ -33,6 +33,7 @@
       v-model="masterData.subject_ids"
     )
     v-checkbox(
+      v-if="user.role === 3"
       label="is teacher"
       v-model="masterData.role"
     )
@@ -68,6 +69,7 @@ const Subject = defineComponent({
     }
   },
   setup(props, {emit}) {
+    const user = JSON.parse(localStorage.getItem('user'))
     const {itemData} = toRefs(props)
     const masterData = ref({})
     const subjects = ref([])
@@ -86,7 +88,6 @@ const Subject = defineComponent({
     }
 
     const createItem = async () => {
-      convertData()
       await createData('/user/', masterData.value)
       emit('reload')
     }
@@ -114,7 +115,8 @@ const Subject = defineComponent({
       createItem,
       updateItem,
       masterData,
-      subjects
+      subjects,
+      user
     }
   }
 })

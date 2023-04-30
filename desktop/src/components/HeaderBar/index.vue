@@ -36,12 +36,13 @@ export default defineComponent({
     const user = localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')) : null
     const drawer = ref(false)
     const openChangePasswordDialog = ref(false)
-    const menus = JSON.parse(localStorage.getItem('user'))?.role === 1
+    const menus = JSON.parse(localStorage.getItem('user'))?.role !== 0
       ?
         [
           {icon: 'mdi-clipboard-list-outline', text: 'Danh Sách Lớp', page: urlPath.Subject},
           {icon: 'mdi-notebook-check-outline', text: 'Chấm Điểm', page: urlPath.Grading},
           {icon: 'mdi-notebook-plus-outline', text: 'Tạo Đáp Án', page: urlPath.CreateResult},
+          {icon: 'mdi-notebook-plus-outline', text: 'Tạo Đáp Án Thủ Công', page: urlPath.ManualCreateResult},
           {icon: 'mdi-key-outline', text: 'Đổi mật khẩu', page: null},
           {icon: 'mdi-logout', text: 'Logout', page: urlPath.Login}
         ]

@@ -15,9 +15,10 @@ class Result(BaseModel):
 
     @classmethod
     def create(cls, image, **kwargs):
-        image = Image.create(b64decode(image))
+        if image:
+            image = Image.create(b64decode(image))
 
-        kwargs['image'] = image.id
+            kwargs['image'] = image.id
         return model_to_dict(super().create(**kwargs))
 
     @classmethod
@@ -46,6 +47,7 @@ class Result(BaseModel):
 
     @classmethod
     def update_one(cls, id, image, data):
-        image = Image.create(b64decode(image))
-        data['image'] = image.id
+        if image:
+            image = Image.create(b64decode(image))
+            data['image'] = image.id
         return cls.update(**data).where(cls.id == id).execute()
