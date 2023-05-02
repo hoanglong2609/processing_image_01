@@ -14,7 +14,7 @@
       v-btn.mr-2.button(v-if="downloadScore" color="primary" dark @click="onDownload")
         v-icon mdi-cloud-download-outline
         span Download Score
-      v-btn.mr-2.button(v-if="user.role === 1" color="primary" dark @click="$emit('open-add-dialog')")
+      v-btn.mr-2.button(v-if="user.role === 3" color="primary" dark @click="$emit('open-add-dialog')")
         v-icon mdi-plus
         span Add
 

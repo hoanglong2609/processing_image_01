@@ -8,6 +8,7 @@
     )
       template(v-slot:action="{item}")
         v-menu(
+          v-if="user.role === 3"
           left
           offset-y
           min-width="9vw"
@@ -50,12 +51,14 @@ const JMasterItemList = defineComponent({
   },
   setup(props, { emit }) {
     // Click to open unit of each group
+    const user = JSON.parse(localStorage.getItem('user'))
     const onClickNextIcon = (item) => {
       emit('go-to-master-detail', item)
     }
 
     return {
-      onClickNextIcon
+      onClickNextIcon,
+      user
     }
   }
 })

@@ -92,6 +92,20 @@ const routes = [
     }
   },
   {
+    path: '/user',
+    name: 'User',
+    component: () => import(/* webpackChunkName: "about" */ '../pages/User/index.vue'),
+    beforeEnter: (to, from, next) => {
+      const token = localStorage.getItem('user')
+      if (token && from.name !== to.name) {
+        store.commit('setTitle', 'Grading')
+        next()
+        return
+      }
+      next({ name: 'Login' })
+    }
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import(/* webpackChunkName: "about" */ '../pages/Login/index.vue'),

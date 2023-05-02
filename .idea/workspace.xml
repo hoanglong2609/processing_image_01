@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2464f9f-9056-4072-b559-e0ff2f8b497e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/desktop/src/components/MultipleChoice/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop/src/pages/ManualCreateResult/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/components/Dialog/ChangePassword/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/ChangePassword/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/components/Dialog/Subject/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/Subject/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/components/Dialog/User/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/User/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/components/HeaderBar/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/HeaderBar/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/components/ProcessingImageBase/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/ProcessingImageBase/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/pages/Student/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Student/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/pages/Subject/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Subject/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/utils/urlPath.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/utils/urlPath.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/constants.js" afterDir="false" />
-    </list>
+    <list default="true" id="e2464f9f-9056-4072-b559-e0ff2f8b497e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,6 +116,7 @@
       <workItem from="1682324191770" duration="920000" />
       <workItem from="1682432005425" duration="2125000" />
       <workItem from="1682865224809" duration="274000" />
+      <workItem from="1682865515408" duration="1801000" />
     </task>
     <task id="LOCAL-00001" summary="temp commit">
       <created>1680174157595</created>
@@ -219,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682436040310</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add new role.">
+      <created>1682865691297</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682865691297</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +220,8 @@
     <MESSAGE value="add api  subject login" />
     <MESSAGE value="login before create result and grading." />
     <MESSAGE value="add new interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new interface" />
+    <MESSAGE value="add new role." />
+    <option name="LAST_COMMIT_MESSAGE" value="add new role." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/processing_image_L2$main.coverage" NAME="main Coverage Results" MODIFIED="1681913694472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />

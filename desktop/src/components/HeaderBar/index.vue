@@ -40,6 +40,7 @@ export default defineComponent({
       ?
         [
           {icon: 'mdi-clipboard-list-outline', text: 'Danh Sách Lớp', page: urlPath.Subject},
+          {icon: 'mdi-clipboard-list-outline', text: 'Danh Sách Người Dùng', page: urlPath.User},
           {icon: 'mdi-notebook-check-outline', text: 'Chấm Điểm', page: urlPath.Grading},
           {icon: 'mdi-notebook-plus-outline', text: 'Tạo Đáp Án', page: urlPath.CreateResult},
           {icon: 'mdi-notebook-plus-outline', text: 'Tạo Đáp Án Thủ Công', page: urlPath.ManualCreateResult},
@@ -62,6 +63,7 @@ export default defineComponent({
       }
       if (menu.text === 'Logout') localStorage.clear()
       $router.push({name: menu.page.name}).catch(() => {})
+      instance.$forceUpdate()
     }
     return {
       user,
