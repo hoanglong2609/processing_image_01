@@ -22,7 +22,7 @@
       ref="subject_dialog"
       :show="isOpenDialog"
       :item-data="curSubject"
-      :label="curSubject ? 'Add' : 'Edit'"
+      :label="curSubject===null ? 'Add' : 'Edit'"
       :is-add="curSubject === null"
       @on-close="isOpenDialog = false"
       @reload="init"

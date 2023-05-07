@@ -14,6 +14,7 @@
       :actions="actions"
       @click-icon="curUser = $event"
       @on-update="isOpenDialog = true"
+      @go-to-master-detail="goToScore"
       @on-delete="onDelete"
     )
 
@@ -33,7 +34,7 @@
       ref="user_dialog"
       :show="isOpenDialog"
       :item-data="curUser"
-      :label="curUser ? 'Add' : 'Edit'"
+      :label="curUser===null ? 'Add' : 'Edit'"
       :is-add="curUser === null"
       @on-close="isOpenDialog = false"
       @reload="init"
@@ -99,6 +100,16 @@ const Student = defineComponent({
       init()
     }, 300)
 
+    const goToScore = (student) => {
+      $router.push({
+        name: urlPath.Score.name,
+        query: {
+          ...$route.query,
+          student: student.id
+        }
+      })
+    }
+
     onMounted(async () => {
       await init()
     })
@@ -107,6 +118,7 @@ const Student = defineComponent({
       headers,
       actions,
       students,
+      goToScore,
       searchInfo,
       handleSearchInput,
       isOpenDialog,

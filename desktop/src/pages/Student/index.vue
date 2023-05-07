@@ -34,7 +34,7 @@
       ref="user_dialog"
       :show="isOpenDialog"
       :item-data="curUser"
-      :label="curUser ? 'Add' : 'Edit'"
+      :label="curUser===null ? 'Add' : 'Edit'"
       :is-add="curUser === null"
       @on-close="isOpenDialog = false"
       @reload="init"
