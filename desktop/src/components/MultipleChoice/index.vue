@@ -1,7 +1,7 @@
 <template lang="pug">
   v-row
     v-col.pa-0(cols="2")
-      span {{no}}
+      span.no {{no}}
     v-col.pa-0(cols="10")
       v-row.pt-2
         v-col.pa-1(cols="3" @click="onChoose(0)")
@@ -40,3 +40,9 @@ const MultipleChoice = defineComponent({
 
 export default MultipleChoice
 </script>
+
+<style lang="sass" scoped>
+.no
+  color: red
+  font-size: 17px
+</style>

@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e2464f9f-9056-4072-b559-e0ff2f8b497e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/MultipleChoice/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/MultipleChoice/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/pages/Subject/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Subject/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +124,7 @@
       <workItem from="1683037760769" duration="437000" />
       <workItem from="1683117947666" duration="4747000" />
       <workItem from="1683163136767" duration="3836000" />
+      <workItem from="1683469089349" duration="783000" />
     </task>
     <task id="LOCAL-00001" summary="temp commit">
       <created>1680174157595</created>
@@ -229,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683038181245</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fix role">
+      <created>1683469149187</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1683469149187</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

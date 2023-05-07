@@ -62,7 +62,7 @@ const Subject = defineComponent({
     }, 300)
 
     const onDelete = async () => {
-      await deleteData('/user/', curUser.value.id)
+      await deleteData('/subject/', curSubject.value.id)
       await init()
     }
 
