@@ -21,12 +21,12 @@ const Home = () => {
         />
 
         <View className="h-[30%]">
-          <Text className="text-[30px] text-center font-semibold mt-[40px] text-[#413f52]">Manager Exam</Text>
-          <Text className="text-[30px] text-center font-semibold mt-[10px] text-[#413f52]">Make it Easy and Quick!</Text>
+          <Text className="text-[30px] text-center font-semibold mt-[40px] text-[#413f52]">Quản lí bài thi</Text>
+          <Text className="text-[30px] text-center font-semibold mt-[10px] text-[#413f52]">Nhanh chóng dễ dàng!</Text>
         </View>
 
         <TouchableOpacity className="bg-yellow-400 px-14 py-4 rounded-lg mt-[15%]" onPress={() => navigation.navigate('Login')}>
-          <Text className="text-white text-[20px] font-semibold">Join Now</Text>
+          <Text className="text-white text-[20px] font-semibold">Bắt đầu</Text>
         </TouchableOpacity>
       </Box>
     </NativeBaseProvider>
