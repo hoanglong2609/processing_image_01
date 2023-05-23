@@ -88,6 +88,7 @@ const Subject = defineComponent({
     }
 
     const createItem = async () => {
+      convertData()
       await createData('/user/', masterData.value)
       emit('reload')
     }
