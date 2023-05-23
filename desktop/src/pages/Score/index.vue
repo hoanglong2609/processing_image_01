@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     header-bar
-    h2.text-center.clr-red.pt-2 Điẻm
+    h2.text-center.clr-red.pt-2 Điểm
     j-master-item-list.pa-2(
       :headers="headers"
       :items="scores"
@@ -10,7 +10,7 @@
       template(v-slot:item.student="{item}")
         span {{item.student.name}}
       template(v-slot:item.answer="{item}")
-        a(:href="item.image.url") bài làm
+        a(:href="item.image.url") Bài làm
       template(v-slot:item.result="{item}")
         a(@click="onOpenResultDialog(item)") Kết quả
       //@on-delete="openConfirmDelete"

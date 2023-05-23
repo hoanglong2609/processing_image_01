@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e2464f9f-9056-4072-b559-e0ff2f8b497e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/HeaderBar/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/HeaderBar/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop/src/pages/Score/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Score/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop/src/pages/Student/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Student/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop/src/pages/Subject/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Subject/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop/src/pages/User/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/User/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +145,7 @@
       <workItem from="1684675442374" duration="1364000" />
       <workItem from="1684765159449" duration="679000" />
       <workItem from="1684828132635" duration="4980000" />
-      <workItem from="1684848906489" duration="3949000" />
+      <workItem from="1684848906489" duration="5015000" />
     </task>
     <task id="LOCAL-00001" summary="temp commit">
       <created>1680174157595</created>
@@ -292,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684855315025</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="chang title en to vn">
+      <created>1684855450340</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1684855450340</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +317,8 @@
     <MESSAGE value="fix del" />
     <MESSAGE value="change title, downdload, score and result dialog" />
     <MESSAGE value="fix initial password" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix initial password" />
+    <MESSAGE value="chang title en to vn" />
+    <option name="LAST_COMMIT_MESSAGE" value="chang title en to vn" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/processing_image_L2$main.coverage" NAME="main Coverage Results" MODIFIED="1681913694472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />

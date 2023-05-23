@@ -39,7 +39,7 @@ export default defineComponent({
     const menus = JSON.parse(localStorage.getItem('user'))?.role !== 0
       ?
         [
-          {icon: 'mdi-clipboard-list-outline', text: 'Danh Sách Lớp', page: urlPath.Subject},
+          {icon: 'mdi-clipboard-list-outline', text: 'Danh Sách Phòng Thi', page: urlPath.Subject},
           {icon: 'mdi-clipboard-list-outline', text: 'Danh Sách Người Dùng', page: urlPath.User},
           {icon: 'mdi-notebook-check-outline', text: 'Chấm Điểm', page: urlPath.Grading},
           {icon: 'mdi-notebook-plus-outline', text: 'Tạo Đáp Án', page: urlPath.CreateResult},
@@ -49,7 +49,7 @@ export default defineComponent({
         ]
       : [
           {icon: 'mdi-clipboard-list-outline', text: 'Danh Sách Lớp', page: urlPath.Subject},
-          {icon: 'mdi-key-outline', text: 'Đổi mật khẩu', page: null},
+          {icon: 'mdi-key-outline', text: 'Đổi Mật Khẩu', page: null},
           {icon: 'mdi-logout', text: 'Logout', page: urlPath.Login}
         ]
 
@@ -57,7 +57,7 @@ export default defineComponent({
       $router.back()
     }
     const goto = (menu) => {
-      if (menu.text === 'Đổi mật khẩu') {
+      if (menu.text === 'Đổi Mật Khẩu') {
         openChangePasswordDialog.value = true
         return
       }

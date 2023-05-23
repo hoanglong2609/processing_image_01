@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     header-bar
-    h2.text-center.clr-red.pt-2 Nguoi Dung
+    h2.text-center.clr-red.pt-2 Danh Sách Người Dùng
     j-master-menu-component(
       :search-info="searchInfo"
       :download-score="true"

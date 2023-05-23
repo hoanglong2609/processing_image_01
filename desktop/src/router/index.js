@@ -14,7 +14,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const token = localStorage.getItem('user')
       if (token && from.name !== to.name) {
-        store.commit('setTitle', 'Môn Học')
+        store.commit('setTitle', 'Phòng Thi')
         next()
         return
       }
@@ -28,7 +28,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const token = localStorage.getItem('user')
       if (token && from.name !== to.name) {
-        store.commit('setTitle', 'Người dùng')
+        store.commit('setTitle', 'Danh Sách Thành Viên')
         next()
         return
       }
@@ -70,7 +70,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const token = localStorage.getItem('user')
       if (token && from.name !== to.name) {
-        store.commit('setTitle', 'Tạo Đáp Án Thường')
+        store.commit('setTitle', 'Tạo Đáp Án Thủ Công')
         next()
         return
       }
@@ -98,7 +98,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const token = localStorage.getItem('user')
       if (token && from.name !== to.name) {
-        store.commit('setTitle', 'Người Dùng')
+        store.commit('setTitle', 'Danh Sách Người Dùng')
         next()
         return
       }
