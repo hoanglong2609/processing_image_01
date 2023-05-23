@@ -7,17 +7,30 @@
       :items="scores"
       :actions="actions"
     )
+      template(v-slot:item.student="{item}")
+        span {{item.student.name}}
+      template(v-slot:item.answer="{item}")
+        a(:href="item.image.url") bài làm
+      template(v-slot:item.result="{item}")
+        a(@click="onOpenResultDialog(item)") Kết quả
       //@on-delete="openConfirmDelete"
       //@on-update="onClickOpenUpdateDialog"
+
+    result-dialog(
+      :show="openResultDialog"
+      :result="resultData"
+      @on-close="openResultDialog = false"
+    )
 </template>
 
 <script>
 import {defineComponent, onMounted, ref, getCurrentInstance} from "vue";
 import {JMasterItemList, HeaderBar} from '@/components'
 import {getData, urlPath, actions} from "@/utils";
+import {ResultDialog} from "@/components";
 
 const Score = defineComponent({
-  components: {JMasterItemList, HeaderBar},
+  components: {JMasterItemList, HeaderBar, ResultDialog},
   setup() {
     const instance = getCurrentInstance().proxy
     const {$router, $route} = instance
@@ -35,17 +48,40 @@ const Score = defineComponent({
         value: 'code'
       },
       {
+        text: 'student',
+        sortable: false,
+        value: 'student'
+      },
+      {
         text: 'score',
         sortable: false,
         value: 'score'
+      },
+      {
+        text: 'answer',
+        sortable: false,
+        value: 'answer'
+      },
+      {
+        text: 'result',
+        sortable: false,
+        value: 'result'
       }
     ]
 
+    const openResultDialog = ref(false)
+
     const scores = ref([])
+    const resultData = ref([])
     const init = async () => {
       const {subject, student} = $route.query
       const data = await getData('/score/', {score: {subject: subject, student: student}})
       scores.value = data.scores
+    }
+
+    const onOpenResultDialog = (item) => {
+      openResultDialog.value = true
+      resultData.value = item.result
     }
 
     onMounted(async () => {
@@ -55,7 +91,10 @@ const Score = defineComponent({
     return {
       headers,
       actions,
-      scores
+      scores,
+      openResultDialog,
+      onOpenResultDialog,
+      resultData
     }
   }
 })

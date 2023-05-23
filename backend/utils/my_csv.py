@@ -30,7 +30,7 @@ def open_file(file_path, encoding="shift-jisx0213"):
 
 
 def write_csv(file_name, rows=[]):
-    with open(file_name, "w", encoding="Shift_JIS", newline="") as f:
+    with open(file_name, "w", encoding="utf-8", newline="") as f:
         writer = csv.writer(
             f, quotechar="", escapechar="\\", quoting=csv.QUOTE_NONE
         )

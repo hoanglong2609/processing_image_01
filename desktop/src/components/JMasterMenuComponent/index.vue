@@ -51,6 +51,10 @@ export default defineComponent({
         link.click()
         URL.revokeObjectURL(link.href)
       } catch (e) {
+        if (e.response?.data?.detail) {
+          $toast.error(e.response?.data?.detail)
+          return
+        }
         $toast.error('Download failed')
       }
     }

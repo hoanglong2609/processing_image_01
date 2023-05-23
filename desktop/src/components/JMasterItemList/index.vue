@@ -20,6 +20,9 @@
             v-list-item(v-for="(action, i) in actions" :key="i" link @click="$emit(action.action, item)")
               v-icon.pr-3(:color="action.color") {{ action.icon }}
               v-list-item-title {{ action.text }}
+
+      template(v-for='(_, slot) of $scopedSlots' v-slot:[slot]='scope')
+          slot(v-bind='scope', :name='slot')
 </template>
 <script>
 import { defineComponent } from 'vue'

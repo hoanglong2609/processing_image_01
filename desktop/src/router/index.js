@@ -14,7 +14,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const token = localStorage.getItem('user')
       if (token && from.name !== to.name) {
-        store.commit('setTitle', 'Subject')
+        store.commit('setTitle', 'Môn Học')
         next()
         return
       }
@@ -28,7 +28,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const token = localStorage.getItem('user')
       if (token && from.name !== to.name) {
-        store.commit('setTitle', 'User')
+        store.commit('setTitle', 'Người dùng')
         next()
         return
       }
@@ -42,7 +42,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const token = localStorage.getItem('user')
       if (token && from.name !== to.name) {
-        store.commit('setTitle', 'Score')
+        store.commit('setTitle', 'Điểm')
         next()
         return
       }
@@ -56,7 +56,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const token = localStorage.getItem('user')
       if (token && from.name !== to.name) {
-        store.commit('setTitle', 'CreateResult')
+        store.commit('setTitle', 'Tạo Đáp Án')
         next()
         return
       }
@@ -70,7 +70,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const token = localStorage.getItem('user')
       if (token && from.name !== to.name) {
-        store.commit('setTitle', 'ManualCreateResult')
+        store.commit('setTitle', 'Tạo Đáp Án Thường')
         next()
         return
       }
@@ -84,7 +84,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const token = localStorage.getItem('user')
       if (token && from.name !== to.name) {
-        store.commit('setTitle', 'Grading')
+        store.commit('setTitle', 'Chấm Điểm')
         next()
         return
       }
@@ -98,7 +98,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const token = localStorage.getItem('user')
       if (token && from.name !== to.name) {
-        store.commit('setTitle', 'Grading')
+        store.commit('setTitle', 'Người Dùng')
         next()
         return
       }
@@ -112,7 +112,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const token = localStorage.getItem('user')
       if (!token) {
-        store.commit('setTitle', 'Login')
+        store.commit('setTitle', 'Đăng Nhập')
         next()
         return
       }

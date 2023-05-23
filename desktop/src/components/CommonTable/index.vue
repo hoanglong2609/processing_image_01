@@ -22,6 +22,8 @@
         span {{item.role === 1 ? 'teacher' : 'student'}}
     template(v-slot:item.action="{ item }")
       slot(name="action" :item="item")
+    template(v-for='(_, slot) of $scopedSlots' v-slot:[slot]='scope')
+      slot(v-bind='scope', :name='slot')
 
 </template>
 <script>

@@ -10,6 +10,8 @@ from base64 import b64decode
 from fastapi import HTTPException
 from utils.my_csv import write_csv
 from fastapi.responses import FileResponse
+from operator import attrgetter
+
 
 class Score(BaseModel):
     student = ForeignKeyField(User)
@@ -93,6 +95,25 @@ class Score(BaseModel):
             cls.update(**{'score': score}).where(cls.id == score_data['id']).execute()
 
     @classmethod
+    def get_list(cls, **kwargs):
+        query = cls.handle_select(**kwargs)
+
+        for key, value in kwargs.items():
+            if key in cls._meta.fields:
+                if value is not None:
+                    query = query.where(attrgetter(key)(cls) == value)
+
+        query = query.dicts()
+        scores = list(query)
+
+        for score in scores:
+            result_id = Result.get_or_none(code=score['code'], subject=score['subject']['id'])
+            if result_id:
+                score['result'] = result_id.result
+
+        return scores
+
+    @classmethod
     def handle_select(cls, **kwargs):
         return (
             cls.select(
@@ -125,6 +146,9 @@ class Score(BaseModel):
         fields = ['id', 'subject', 'code', 'name', 'mail', 'score']
         header = fields
         rows = [header]
+        print(scores)
+        if not scores:
+            raise HTTPException(400, 'Khong co diem')
 
         # items of csv
         for score in scores:
