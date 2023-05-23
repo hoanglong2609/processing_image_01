@@ -10,7 +10,7 @@
       template(v-slot:item.student="{item}")
         span {{item.student.name}}
       template(v-slot:item.answer="{item}")
-        a(:href="item.image.url") Bài làm
+        a(@click="openImageDialog = true, urlImage=item.image.url") bài làm
       template(v-slot:item.result="{item}")
         a(@click="onOpenResultDialog(item)") Kết quả
       //@on-delete="openConfirmDelete"
@@ -21,16 +21,22 @@
       :result="resultData"
       @on-close="openResultDialog = false"
     )
+
+    image-dialog(
+      :show="openImageDialog"
+      :url="urlImage"
+      @on-close="openImageDialog = false"
+    )
 </template>
 
 <script>
 import {defineComponent, onMounted, ref, getCurrentInstance} from "vue";
 import {JMasterItemList, HeaderBar} from '@/components'
 import {getData, urlPath, actions} from "@/utils";
-import {ResultDialog} from "@/components";
+import {ResultDialog, ImageDialog} from "@/components";
 
 const Score = defineComponent({
-  components: {JMasterItemList, HeaderBar, ResultDialog},
+  components: {JMasterItemList, HeaderBar, ResultDialog, ImageDialog},
   setup() {
     const instance = getCurrentInstance().proxy
     const {$router, $route} = instance
@@ -73,6 +79,9 @@ const Score = defineComponent({
 
     const scores = ref([])
     const resultData = ref([])
+    const openImageDialog = ref(false)
+    const urlImage = ref('')
+
     const init = async () => {
       const {subject, student} = $route.query
       const data = await getData('/score/', {score: {subject: subject, student: student}})
@@ -94,7 +103,9 @@ const Score = defineComponent({
       scores,
       openResultDialog,
       onOpenResultDialog,
-      resultData
+      resultData,
+      openImageDialog,
+      urlImage
     }
   }
 })
