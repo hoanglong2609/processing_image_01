@@ -5,17 +5,77 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2464f9f-9056-4072-b559-e0ff2f8b497e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/mobile/assets/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/common.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/poetry.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pyproject.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/imageToSave.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/imageToSave.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/img_draresult.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_draresult.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/img_thershcode.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershcode.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/img_thershresult.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershresult.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/img_thershstudent.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershstudent.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/jsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/jsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/android-chrome-192x192.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/android-chrome-192x192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/android-chrome-512x512.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/android-chrome-512x512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/android-chrome-maskable-192x192.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/android-chrome-maskable-192x192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/android-chrome-maskable-512x512.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/android-chrome-maskable-512x512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/apple-touch-icon-120x120.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/apple-touch-icon-120x120.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/apple-touch-icon-152x152.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/apple-touch-icon-152x152.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/apple-touch-icon-180x180.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/apple-touch-icon-180x180.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/apple-touch-icon-60x60.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/apple-touch-icon-60x60.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/apple-touch-icon-76x76.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/apple-touch-icon-76x76.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/apple-touch-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/favicon-16x16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/favicon-32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/msapplication-icon-144x144.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/msapplication-icon-144x144.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/mstile-150x150.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/mstile-150x150.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/img/icons/safari-pinned-tab.svg" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/img/icons/safari-pinned-tab.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/public/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/assets/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/assets/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/assets/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/CommonTable/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/CommonTable/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/Dialog/ChangePassword/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/ChangePassword/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/Dialog/Confirm/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/Confirm/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/Dialog/Subject/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/Subject/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/Dialog/User/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/User/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/Dialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/DialogContainer/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/DialogContainer/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/HeaderBar/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/HeaderBar/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/JMasterItemList/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/JMasterItemList/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/JMasterMenuComponent/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/JMasterMenuComponent/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/MultipleChoice/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/MultipleChoice/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/ProcessingImageBase/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/ProcessingImageBase/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/ProcessingImageBase/loginSubjectDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/ProcessingImageBase/loginSubjectDialog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/pages/CreateResult/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/CreateResult/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/pages/Grading/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Grading/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/pages/Login/ForgotPass.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Login/ForgotPass.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/pages/Login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/pages/ManualCreateResult/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/ManualCreateResult/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/pages/Score/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Score/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/pages/Student/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Student/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/pages/Subject/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Subject/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/pages/User/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/User/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/plugins/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/plugins/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/plugins/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/plugins/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/plugins/vuetify.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/plugins/vuetify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/registerServiceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/registerServiceWorker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/utils/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/utils/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/utils/constance.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/utils/constance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/utils/urlPath.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/utils/urlPath.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/vue.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/screen/ForgotPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/screen/ForgotPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/screen/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/screen/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/screen/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/screen/Login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +106,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -144,7 +204,12 @@
       <workItem from="1683770694324" duration="1367000" />
       <workItem from="1683800233390" duration="1184000" />
       <workItem from="1684243851193" duration="4519000" />
-      <workItem from="1684646402995" duration="433000" />
+      <workItem from="1684646402995" duration="840000" />
+      <workItem from="1684660104717" duration="2573000" />
+      <workItem from="1684675442374" duration="1364000" />
+      <workItem from="1684765159449" duration="679000" />
+      <workItem from="1684828132635" duration="4980000" />
+      <workItem from="1684848906489" duration="2645000" />
     </task>
     <task id="LOCAL-00001" summary="temp commit">
       <created>1680174157595</created>
@@ -265,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683469910600</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fix del">
+      <created>1684646841346</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1684646841346</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
