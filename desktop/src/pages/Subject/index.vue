@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     header-bar
-    h2.text-center.clr-red.pt-2 Subjects
+    h2.text-center.clr-red.pt-2 Mon Hoc
     j-master-menu-component(
       :search-info="searchInfo"
       @inputting="handleSearchInput"

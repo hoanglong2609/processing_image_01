@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     header-bar
-    h2.text-center.clr-red.pt-2 User
+    h2.text-center.clr-red.pt-2 Nguoi Dung
     j-master-menu-component(
       :search-info="searchInfo"
       :download-score="true"

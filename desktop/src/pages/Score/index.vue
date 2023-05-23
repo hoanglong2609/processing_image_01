@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     header-bar
-    h2.text-center.clr-red.pt-2 Score
+    h2.text-center.clr-red.pt-2 Điẻm
     j-master-item-list.pa-2(
       :headers="headers"
       :items="scores"
