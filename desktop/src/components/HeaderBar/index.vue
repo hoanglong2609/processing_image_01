@@ -44,7 +44,7 @@ export default defineComponent({
           {icon: 'mdi-notebook-check-outline', text: 'Chấm Điểm', page: urlPath.Grading},
           {icon: 'mdi-notebook-plus-outline', text: 'Tạo Đáp Án', page: urlPath.CreateResult},
           {icon: 'mdi-notebook-plus-outline', text: 'Tạo Đáp Án Thủ Công', page: urlPath.ManualCreateResult},
-          {icon: 'mdi-key-outline', text: 'Đổi mật khẩu', page: null},
+          {icon: 'mdi-key-outline', text: 'Đổi Mật Khẩu', page: null},
           {icon: 'mdi-logout', text: 'Logout', page: urlPath.Login}
         ]
       : [
@@ -57,7 +57,7 @@ export default defineComponent({
       $router.back()
     }
     const goto = (menu) => {
-      if (menu.text === 'Đổi Mật Khẩu') {
+      if (menu.page === null) {
         openChangePasswordDialog.value = true
         return
       }
