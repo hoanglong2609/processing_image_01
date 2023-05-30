@@ -1,6 +1,8 @@
 <template lang="pug" xmlns="">
   div
     header-bar(ref="headerBar")
+    h1.center Phần Mềm Chấm Thi Tự Động
+    v-img.center(src="https://f26-zpc.zdn.vn/3358052566766709073/1b3ebe28bcbe62e03baf.jpg" max-width="100" )
     v-row.my-row
       v-col(cols="6" v-for="menu in menus")
         .btn-menu(@click="goto(menu)")
@@ -68,4 +70,7 @@ export default Home
   cursor: pointer
 .btn-menu div
   padding: 20px
+.center
+  text-align: center
+  margin: 0 auto
 </style>

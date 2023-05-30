@@ -3,6 +3,7 @@ from peewee import IntegerField, CharField
 from datetime import datetime
 from fastapi.responses import FileResponse
 from config.get_env import BACKEND_URL
+import random
 
 
 class Image(BaseModel):
@@ -18,7 +19,7 @@ class Image(BaseModel):
         # save file into image folder and save into database
         dir = 'image'
         time_now = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-        path = f'{dir}/{time_now}.jpg'
+        path = f'{dir}/{time_now}{random.randint(1, 99999999)}.jpg'
         with open(path, "wb+") as file_object:
             file_object.write(image)
 

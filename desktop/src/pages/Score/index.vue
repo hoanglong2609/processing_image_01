@@ -86,7 +86,10 @@ const Score = defineComponent({
 
     const init = async () => {
       const {subject, student} = $route.query
-      const data = await getData('/score/', {score: {subject: subject, student: student}})
+      const data = await getData('/score/', {
+          score: subject ? {subject: subject, student: student} : {student: student}
+        }
+      )
       scores.value = data.scores
     }
 

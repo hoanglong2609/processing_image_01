@@ -131,7 +131,11 @@ export default function Point() {
                         <Text className="text-[16px] font-semibold text-gray-500">Điểm số: {item.score}</Text>
                         <Text className="text-[16px] font-semibold text-gray-500">Đáp án đã chọn:</Text>
                         {item.filled_cell.map((point, index) => (
-                          <Text key={`${sindex}-${index}`}>Câu {index + 1} : {point == 0 ? "A" : point == 1 ? "B" : point == 2 ? "C" : "D"}</Text>
+                          <Text 
+                            className={point == item.result[index] ? "text-green-500" : "text-red-400"}
+                            key={`${sindex}-${index}`}>
+                            Câu {index + 1} : {point == 0 ? "A" : point == 1 ? "B" : point == 2 ? "C" : "D"}
+                          </Text>
                         ))}
                       </View>
                     </View>

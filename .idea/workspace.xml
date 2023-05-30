@@ -6,13 +6,98 @@
   <component name="ChangeListManager">
     <list default="true" id="e2464f9f-9056-4072-b559-e0ff2f8b497e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/imageToSave.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/imageToSave.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/img_draresult.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_draresult.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/img_thershcode.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershcode.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/img_thershresult.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershresult.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/img_thershstudent.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershstudent.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/score.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/components/Dialog/Result/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/Result/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_25_04_54_07.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_25_06_00_28.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_25_06_00_55.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_25_06_01_37.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_25_06_05_06.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_25_06_05_16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_25_06_06_08.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_25_06_06_40.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_25_06_07_07.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_25_06_07_14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_27_13_39_46.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_27_13_58_41.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_27_13_59_04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_29_14_01_43.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_29_14_02_21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_29_14_04_21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_29_14_04_46.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_29_15_28_06.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_29_15_28_23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_29_15_33_49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_29_15_34_37.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_29_15_38_59.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_01_38_26.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_19_18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_19_49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_20_05.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_20_57.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_22_03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_25_25.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_27_59.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_30_00.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_31_58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_37_37.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_38_36.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_38_57.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_46_10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_46_42.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_54_47.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_58_00.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_58_11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_02_58_56.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_03_01_27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_03_01_58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_05_23_22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_05_45_24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_06_49_20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_07_00_43.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_07_19_23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_07_32_17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_07_50_25.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_08_03_48.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_08_09_27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_08_10_17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_08_22_14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_08_27_12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_08_27_54.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_08_47_37.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_08_53_33.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_08_54_06.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_05_34.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_10_13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_11_32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_21_21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_26_00.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_27_14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_30_05.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_31_14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_32_08.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_37_49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_38_29.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_47_48.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_51_53.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_52_36.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_09_55_27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_10_32_47.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_10_37_38.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_10_38_27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_03_30_10_58_52.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_04_10_12_38_21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_04_10_16_38_24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_04_10_16_38_58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_04_10_16_46_37.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_04_10_16_53_02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_04_11_13_32_45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_04_11_13_59_31.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_04_11_13_59_58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image/2023_04_11_14_25_19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/imageToSave.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/model/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/pages/Home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Home/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/pages/Score/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Score/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/screen/Point.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/screen/Point.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +123,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "database.data.extractors.current.export.id": "SQL Inserts",
-    "last_opened_file_path": "/home/msi/Desktop/processing_image_L2/desktop/src/pages",
+    "last_opened_file_path": "/home/msi/Desktop/processing_image_L2/mobile/screen",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,11 +140,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mobile/screen" />
       <recent name="$PROJECT_DIR$/desktop/src/pages" />
       <recent name="$PROJECT_DIR$/desktop/src/components/Dialog" />
       <recent name="$PROJECT_DIR$/mobile" />
       <recent name="$PROJECT_DIR$/desktop/src" />
-      <recent name="$PROJECT_DIR$/desktop" />
     </key>
   </component>
   <component name="RunManager">
@@ -152,7 +237,7 @@
       <workItem from="1684984170925" duration="1528000" />
       <workItem from="1684998376965" duration="1652000" />
       <workItem from="1685003895444" duration="529000" />
-      <workItem from="1685434647573" duration="3324000" />
+      <workItem from="1685434647573" duration="5852000" />
     </task>
     <task id="LOCAL-00001" summary="temp commit">
       <created>1680174157595</created>
@@ -336,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685455329347</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="temp commit">
+      <created>1685456925905</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1685456925905</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
