@@ -6,6 +6,23 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'Home',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../pages/Home/index.vue'),
+    beforeEnter: (to, from, next) => {
+      const token = localStorage.getItem('user')
+      if (token && from.name !== to.name) {
+        store.commit('setTitle', 'Trang Chủ')
+        next()
+        return
+      }
+      next({ name: 'Login' })
+    }
+  },
+  {
+    path: '/',
     name: 'Subject',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

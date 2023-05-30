@@ -80,6 +80,7 @@ const Subject = defineComponent({
       })
       masterData.value.password = masterData.value.code
       masterData.value.role = masterData.value.role ? 1 : 0
+      masterData.value.subject_ids = masterData.value.subject_ids.filter(sId => sId)
     }
     const updateItem = async () => {
       convertData()

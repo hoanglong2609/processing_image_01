@@ -8,8 +8,8 @@
     template(v-slot:actions)
       span
     v-row
-      v-col(cols="3" v-for="rs in resultShow")
-        span {{rs.no}}: {{rs.value}}
+      v-col(cols="3" v-for="rs, index in resultShow")
+        span {{rs.no}}: {{rs.value}} / {{filledCellShow[index]?.value || ''}}
 
 </template>
 
@@ -24,6 +24,9 @@ export default defineComponent({
       required: true
     },
     result: {
+      default: () => []
+    },
+    filledCell: {
       default: () => []
     }
   },
@@ -41,8 +44,23 @@ export default defineComponent({
       })
       return data
     })
+
+    const filledCellShow = computed(() => {
+      const data = []
+      props.filledCell.forEach((key, index) => {
+        let value = ''
+        if (props.result[index] === 0) value = 'A'
+        if (props.result[index] === 1) value = 'B'
+        if (props.result[index] === 2) value = 'C'
+        if (props.result[index] === 3) value = 'D'
+        data.push({no: index + 1, value: value})
+      })
+      return data
+    })
+
     return {
-      resultShow
+      resultShow,
+      filledCellShow
     }
   }
 })

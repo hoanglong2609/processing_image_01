@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2464f9f-9056-4072-b559-e0ff2f8b497e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/Image/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop/src/pages/Home/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/components/Dialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/imageToSave.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/imageToSave.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/img_draresult.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_draresult.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/img_thershcode.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershcode.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/img_thershresult.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershresult.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/img_thershstudent.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/img_thershstudent.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/Dialog/Result/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/Result/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/components/Dialog/User/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/components/Dialog/User/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop/src/pages/Score/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/pages/Score/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/constants.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/msi/Desktop/processing_image_L2/desktop/src/components/Dialog",
+    "last_opened_file_path": "/home/msi/Desktop/processing_image_L2/desktop/src/pages",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -50,8 +58,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/desktop/src/components/Dialog" />
       <recent name="$PROJECT_DIR$/desktop/src/pages" />
+      <recent name="$PROJECT_DIR$/desktop/src/components/Dialog" />
       <recent name="$PROJECT_DIR$/mobile" />
       <recent name="$PROJECT_DIR$/desktop/src" />
       <recent name="$PROJECT_DIR$/desktop" />
@@ -142,7 +150,12 @@
       <workItem from="1684675442374" duration="1364000" />
       <workItem from="1684765159449" duration="679000" />
       <workItem from="1684828132635" duration="4980000" />
-      <workItem from="1684848906489" duration="6063000" />
+      <workItem from="1684848906489" duration="9005000" />
+      <workItem from="1684943722123" duration="637000" />
+      <workItem from="1684984170925" duration="1528000" />
+      <workItem from="1684998376965" duration="1652000" />
+      <workItem from="1685003895444" duration="529000" />
+      <workItem from="1685434647573" duration="1677000" />
     </task>
     <task id="LOCAL-00001" summary="temp commit">
       <created>1680174157595</created>
@@ -312,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684857402176</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="fix imng">
+      <created>1684857545666</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1684857545666</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +351,8 @@
     <MESSAGE value="chang title en to vn" />
     <MESSAGE value="chang title VN" />
     <MESSAGE value="change Vnmese" />
-    <option name="LAST_COMMIT_MESSAGE" value="change Vnmese" />
+    <MESSAGE value="fix imng" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix imng" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/processing_image_L2$main.coverage" NAME="main Coverage Results" MODIFIED="1681913694472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />

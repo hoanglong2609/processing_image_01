@@ -19,6 +19,7 @@
     result-dialog(
       :show="openResultDialog"
       :result="resultData"
+      :filled-cell="filledCellData"
       @on-close="openResultDialog = false"
     )
 
@@ -79,6 +80,7 @@ const Score = defineComponent({
 
     const scores = ref([])
     const resultData = ref([])
+    const filledCellData = ref([])
     const openImageDialog = ref(false)
     const urlImage = ref('')
 
@@ -91,6 +93,7 @@ const Score = defineComponent({
     const onOpenResultDialog = (item) => {
       openResultDialog.value = true
       resultData.value = item.result
+      filledCellData.value = item.filled_cell
     }
 
     onMounted(async () => {
@@ -105,7 +108,8 @@ const Score = defineComponent({
       onOpenResultDialog,
       resultData,
       openImageDialog,
-      urlImage
+      urlImage,
+      filledCellData
     }
   }
 })
