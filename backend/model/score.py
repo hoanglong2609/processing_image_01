@@ -104,6 +104,7 @@ class Score(BaseModel):
                     query = query.where(attrgetter(key)(cls) == value)
 
         query = query.dicts()
+        print(query)
         scores = list(query)
 
         for score in scores:
@@ -115,7 +116,7 @@ class Score(BaseModel):
 
     @classmethod
     def handle_select(cls, **kwargs):
-        return (
+        query =  (
             cls.select(
                 cls.id,
                 fn.json_build_object(
@@ -138,6 +139,8 @@ class Score(BaseModel):
                 Image, on=Image.id == cls.image
             )
         )
+
+        return query
 
     @classmethod
     def to_csv(cls, subject):
